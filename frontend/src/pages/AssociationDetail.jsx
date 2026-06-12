@@ -173,17 +173,17 @@ const AssociationDetail = () => {
     { label: "About Us", type: "route", to: "/associations/ieee/about-us" },
     { label: "Events", type: "hash", href: "/associations/ieee/events" },
     { label: "Achievements", type: "hash", href: "#achievements" },
-    { label: "Execom", type: "hash", href: "#team" },
+    { label: "Execom", type: "hash", href: "/associations/ieee/execom" },
     { label: "Contact Us", type: "hash", href: "#overview" },
   ];
 
-  const defaultNavItems = [
-    { label: "Overview", type: "hash", href: "#overview" },
-    { label: "Objectives", type: "hash", href: "#objectives" },
-    { label: "Activities", type: "hash", href: "#activities" },
-    { label: "Team", type: "hash", href: "#team" },
-    { label: "Achievements", type: "hash", href: "#achievements" },
-  ];
+  //const defaultNavItems = [
+    //{ label: "Overview", type: "hash", href: "#overview" },
+    //{ label: "Objectives", type: "hash", href: "#objectives" },
+    //{ label: "Activities", type: "hash", href: "#activities" },
+    //{ label: "Team", type: "hash", href: "#team" },
+    //{ label: "Achievements", type: "hash", href: "#achievements" },
+  //];
 
   return (
     <main>

@@ -7,5 +7,9 @@
     "start": "npm --prefix frontend start",
     "build": "npm --prefix frontend run build",
     "test": "npm --prefix frontend test"
+  },
+  "dependencies": {
+    "eslint": "^8.57.1",
+    "react-day-picker": "^10.0.1"
   }
 }
