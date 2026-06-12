@@ -122,11 +122,11 @@ const mainNav = [
       {
         heading: "Campus Life",
         links: [
-          { label: "Hostels", to: "/campus#hostels" },
-          { label: "Transportation", to: "/campus#transport" },
-          { label: "Sports & Gym", to: "/campus#sports" },
-          { label: "ATM", to: "/campus#atm" },
-          { label: "Solar Rooftop", to: "/sustainability#solar" },
+          { label: "Hostels", to: "/campus-life/hostels" },
+          { label: "Transportation", to: "/campus-life/transportation" },
+          { label: "Sports & Gym", to: "/campus-life/sports-gym" },
+          { label: "ATM", to: "/campus-life/atm" },
+          { label: "Solar Rooftop", to: "/campus-life/solar-rooftop" },
         ],
       },
     ],

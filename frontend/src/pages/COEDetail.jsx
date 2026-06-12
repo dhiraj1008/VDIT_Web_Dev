@@ -59,6 +59,12 @@ const centres = [
       "Internship opportunities, placement assistance and certification support.",
       "Student projects in threat detection, ransomware detection, secure web applications, AI-based intrusion detection and IoT security.",
     ],
+    contactDetails: [
+      "Narasimha Dixit",
+      "Coordinator - Cyber Security Innovation Lab, Department of Computer Science & Engineering",
+      "Email: nkd@klsvdit.edu.in",
+      "Registration / Enquiry Link: To be updated",
+    ],
   },
   {
     id: "toyota-centre-of-excellence",
@@ -102,6 +108,10 @@ const centres = [
       "More than 1,000 students have benefited since establishment.",
       "The facility also supports nearby schools, ITIs, diploma students, local youth and aspiring engineers.",
       "Improves practical engineering knowledge and strengthens industry-academia collaboration.",
+    ],
+    contactDetails: [
+      "Coordinator details: Prof. Rajat Acharya",
+      "Email: rra@klsvdit.edu.in",
     ],
   },
   {
@@ -150,6 +160,12 @@ const centres = [
       "Industry expert interaction and skill development aligned with current requirements.",
       "Participation in research projects, publications and innovation challenges.",
     ],
+    contactDetails: [
+      "Coordinator: Prof. Raghavendra Nagaralli",
+      "Prof. Vijaylaxmi Kalal",
+      "Department: Department of Electronics and Communication Engineering",
+      "Email: rpn@klsvdit.edu.in",
+    ],
   },
   {
     id: "microchip-embedded-systems",
@@ -189,10 +205,33 @@ const centres = [
       "Embedded systems design, microcontroller-based system design and embedded C programming.",
       "IoT product development, rapid prototyping, circuit design and industrial embedded solutions.",
     ],
+    projects: [
+      "Student projects",
+      "Funded projects",
+      "Publications",
+      "Patents",
+      "Prototypes",
+    ],
+    research: [
+      "Research and innovation in embedded technologies.",
+      "Collaborative research and faculty development programs in emerging technologies.",
+      "Integrated problem-solving in embedded systems and semiconductor technology.",
+      "Gallery and downloads support for photos, brochures, reports and activity documents.",
+    ],
+    downloads: [
+      "Photos",
+      "Brochures",
+      "Reports",
+      "Activity documents",
+    ],
     impact: [
       "MoU signed on 05 December 2024 with Microchip Technology India Pvt. Ltd.",
       "Supports student projects, funded projects, publications, patents and prototypes.",
       "Builds industry-ready skills in embedded hardware, firmware and smart monitoring systems.",
+    ],
+    contactDetails: [
+      "Coordinator details: Prof. Subrahmanya Hegde",
+      "Email: smh@klsvdit.edu.in",
     ],
   },
   {
@@ -239,6 +278,10 @@ const centres = [
       "Industry exposure and internship support.",
       "Regional skill development for students, faculty and industry personnel.",
     ],
+    contactDetails: [
+      "Coordinator details: Prof. Rajat Acharya",
+      "Email: rra@klsvdit.edu.in",
+    ],
   },
   {
     id: "leap",
@@ -283,7 +326,7 @@ const COEDetail = () => {
   const centre = centres.find((item) => item.id === id);
 
   if (!centre) {
-    return <Navigate to="/centre-of-excellence" replace />;
+    return <Navigate to="/academics" replace />;
   }
 
   const quickFacts = [
@@ -294,6 +337,22 @@ const COEDetail = () => {
     ["Email", centre.email],
     ["Seating Capacity", centre.capacity],
   ];
+
+  const navItems = [
+    ["overview", "Overview"],
+    ["objectives", "Vision & Objectives"],
+    centre.focusAreas && ["focus", "Focus Areas"],
+    centre.collaborations && ["partners", "Partners"],
+    ["facilities", "Facilities"],
+    ["team", "Team"],
+    ["programs", "Programs"],
+    centre.projects && ["research", "Projects & Research"],
+    centre.downloads && ["downloads", "Gallery & Downloads"],
+    centre.benefits && ["benefits", "Benefits"],
+    centre.events && ["events", "Events"],
+    ["impact", "Impact"],
+    centre.contactDetails && ["contact", "Contact"],
+  ].filter(Boolean);
 
   return (
     <main>
@@ -367,6 +426,45 @@ const COEDetail = () => {
               </ul>
             </Section>
 
+            {centre.projects && (
+              <Section id="research" title="Projects & Research" icon={Microscope}>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <ListCard title="Student Projects" items={centre.projects} />
+                  <ListCard title="Research, Funding & Prototypes" items={centre.research} />
+                </div>
+              </Section>
+            )}
+
+            {centre.downloads && (
+              <Section id="downloads" title="Gallery & Downloads" icon={Beaker}>
+                <ul className="grid sm:grid-cols-2 gap-2">
+                  {centre.downloads.map((item) => (
+                    <InfoItem key={item} icon={Beaker} text={item} compact />
+                  ))}
+                </ul>
+              </Section>
+            )}
+
+            {centre.benefits && (
+              <Section id="benefits" title="Student Benefits" icon={Award}>
+                <ul className="grid sm:grid-cols-2 gap-2">
+                  {centre.benefits.map((item) => (
+                    <InfoItem key={item} icon={Award} text={item} compact />
+                  ))}
+                </ul>
+              </Section>
+            )}
+
+            {centre.events && (
+              <Section id="events" title="Events & Activities" icon={Calendar}>
+                <ul className="grid sm:grid-cols-2 gap-2">
+                  {centre.events.map((item) => (
+                    <InfoItem key={item} icon={Calendar} text={item} compact />
+                  ))}
+                </ul>
+              </Section>
+            )}
+
             <Section id="impact" title="Outcomes & Impact" icon={Sparkles}>
               <ul className="space-y-2">
                 {centre.impact.map((item) => (
@@ -374,6 +472,16 @@ const COEDetail = () => {
                 ))}
               </ul>
             </Section>
+
+            {centre.contactDetails && (
+              <Section id="contact" title="Contact" icon={Mail}>
+                <ul className="space-y-2">
+                  {centre.contactDetails.map((item) => (
+                    <InfoItem key={item} icon={Mail} text={item} />
+                  ))}
+                </ul>
+              </Section>
+            )}
           </div>
 
           <aside className="space-y-5">

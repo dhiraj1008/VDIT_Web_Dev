@@ -48,7 +48,6 @@ import AnnouncementDetail from "./pages/AnnouncementDetail";
 import StudentClubs from "./pages/StudentClubs";
 import Associations from "./pages/Associations";
 import Clubs from "./pages/Clubs";
-import CentreOfExcellence from "./pages/CentreOfExcellence";
 import COEDetail from "./pages/COEDetail";
 import Sustainability from "./pages/Sustainability";
 import AwardsRecognition from "./pages/AwardsRecognition";
@@ -56,6 +55,7 @@ import AssociationDetail from "./pages/AssociationDetail";
 import IeeeAboutUs from "./pages/IeeeAboutUs";
 import IeeeEvents from "./pages/IeeeEvents";
 import IeeeExecom from "./pages/IeeeExecom";
+import CampusLifeDetail from "./pages/CampusLifeDetail";
 
 const Forum = () => (
   <main className="max-w-5xl mx-auto px-6 lg:px-10 py-24 min-h-[60vh]">
@@ -109,6 +109,8 @@ function App() {
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/research" element={<Research />} />
           <Route path="/campus" element={<Campus />} />
+          <Route path="/campus-life/:slug" element={<CampusLifeDetail />} />
+          <Route path="/campus-life/:slug/:section" element={<CampusLifeDetail />} />
           <Route path="/news-events" element={<NewsEvents />} />
           <Route path="/placements" element={<Placements />} />
           <Route path="/library" element={<Library />} />
@@ -118,7 +120,6 @@ function App() {
           <Route path="/associations" element={<Associations />} />
           <Route path="/associations/:id" element={<AssociationDetail />} />
           <Route path="/clubs" element={<Clubs />} />
-          <Route path="/centre-of-excellence" element={<CentreOfExcellence />} />
           <Route path="/coe/:id" element={<COEDetail />} />
           <Route path="/sustainability" element={<Sustainability />} />
           <Route path="/awards-recognition" element={<AwardsRecognition />} />
