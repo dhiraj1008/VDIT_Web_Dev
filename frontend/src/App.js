@@ -55,6 +55,7 @@ import AwardsRecognition from "./pages/AwardsRecognition";
 import AssociationDetail from "./pages/AssociationDetail";
 import IeeeAboutUs from "./pages/IeeeAboutUs";
 import IeeeEvents from "./pages/IeeeEvents";
+import IeeeExecom from "./pages/IeeeExecom";
 
 const Forum = () => (
   <main className="max-w-5xl mx-auto px-6 lg:px-10 py-24 min-h-[60vh]">
@@ -128,6 +129,7 @@ function App() {
 
           <Route path="/associations/ieee/about-us" element={<IeeeAboutUs />} />
           <Route path="/associations/ieee/events" element={<IeeeEvents />} />
+          <Route path="/associations/ieee/execom" element={<IeeeExecom />} />
 
           <Route path="/announcement/:id" element={<AnnouncementDetail />} />
 
