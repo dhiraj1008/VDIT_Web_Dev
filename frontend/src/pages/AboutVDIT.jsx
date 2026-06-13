@@ -1,7 +1,6 @@
 import React from "react";
 import InnerLayout from "./InnerLayout";
 import { stats } from "../data/mock";
-import ChromaKeyVideo from "../components/ChromaKeyVideo";
 
 const AboutVDIT = () => (
   <InnerLayout

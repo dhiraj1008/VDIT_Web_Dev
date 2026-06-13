@@ -139,25 +139,28 @@ const ProgrammeDetail = () => {
               sub={`Meet the ${facList.length} faculty members of the ${dept.short} department`}
             >
               {hod && (
-                <Link
-                  to={`/faculty/${hod.id}`}
+                <article
                   className="flex flex-col sm:flex-row gap-5 bg-white border-l-4 border-brand p-5 mb-5 card-hover"
                 >
-                  <img
-                    src={hod.image}
-                    alt={hod.name}
-                    className="w-28 h-28 sm:w-32 sm:h-32 object-cover flex-shrink-0"
-                  />
+                  <Link to={`/faculty/${hod.id}`} className="flex-shrink-0">
+                    <img
+                      src={hod.image}
+                      alt={hod.name}
+                      className="w-28 h-28 sm:w-32 sm:h-32 object-cover"
+                    />
+                  </Link>
                   <div className="flex-1">
                     <span className="text-xs uppercase tracking-widest text-brand font-sans-ui font-semibold">
                       Head of Department
                     </span>
-                    <h4
-                      className="text-2xl text-brand font-semibold mt-0.5"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                    >
-                      {hod.name}
-                    </h4>
+                    <Link to={`/faculty/${hod.id}`} className="hover:underline">
+                      <h4
+                        className="text-2xl text-brand font-semibold mt-0.5"
+                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                      >
+                        {hod.name}
+                      </h4>
+                    </Link>
                     <p className="text-sm italic text-[#3a3a3a]">
                       {hod.role} · {hod.qualifications}
                     </p>
@@ -176,23 +179,26 @@ const ProgrammeDetail = () => {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </article>
               )}
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {facWithoutHod.map((f) => (
-                  <Link
-                    to={`/faculty/${f.id}`}
+                  <article
                     key={f.id}
                     className="bg-white border border-brand/15 p-4 flex items-start gap-4 card-hover"
                   >
-                    <img
-                      src={f.image}
-                      alt={f.name}
-                      className="w-20 h-20 object-cover flex-shrink-0"
-                    />
+                    <Link to={`/faculty/${f.id}`} className="flex-shrink-0">
+                      <img
+                        src={f.image}
+                        alt={f.name}
+                        className="w-20 h-20 object-cover"
+                      />
+                    </Link>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-brand font-semibold leading-tight">{f.name}</h4>
+                      <Link to={`/faculty/${f.id}`} className="hover:underline">
+                        <h4 className="text-brand font-semibold leading-tight">{f.name}</h4>
+                      </Link>
                       <p className="text-xs italic text-[#3a3a3a] mt-0.5">{f.role}</p>
                       <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">{f.qualifications}</p>
                       <div className="flex flex-wrap gap-1 mt-2">
@@ -203,7 +209,7 @@ const ProgrammeDetail = () => {
                         ))}
                       </div>
                     </div>
-                  </Link>
+                  </article>
                 ))}
               </div>
               <Link

@@ -504,13 +504,6 @@ const COEDetail = () => {
                 ))}
               </div>
 
-              <Link
-                to="/centre-of-excellence"
-                className="block mt-5 text-center bg-brand text-surface py-2.5 text-sm font-semibold font-sans-ui hover:bg-brand-dark transition"
-              >
-                View All Centres
-              </Link>
-
               <div className="mt-6 pt-5 border-t border-brand/10">
                 <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui mb-3">
                   Other Centres
