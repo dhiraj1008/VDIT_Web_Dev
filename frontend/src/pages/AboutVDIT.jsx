@@ -1,7 +1,6 @@
 import React from "react";
 import InnerLayout from "./InnerLayout";
 import { stats } from "../data/mock";
-import ChromaKeyVideo from "../components/ChromaKeyVideo";
 
 const AboutVDIT = () => (
   <InnerLayout
@@ -38,12 +37,6 @@ const AboutVDIT = () => (
         by the Government of Karnataka and accredited by NAAC. Multiple
         undergraduate programmes are accredited by NBA.
       </p>
-
-      <ChromaKeyVideo
-        src="/Dhiraj_vod2.mp4"
-        className="about-vdit-video"
-        ariaLabel="About VDIT video"
-      />
 
       <h3>Quick Facts</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 mt-4 mb-6">

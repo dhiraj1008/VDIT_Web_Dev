@@ -94,23 +94,24 @@ const People = () => {
             {facultyFiltered.map((f) => {
               const d = findDept(f.deptId);
               return (
-                <Link
-                  to={`/faculty/${f.id}`}
+                <article
                   key={f.id}
-                  className="bg-white border border-brand/15 overflow-hidden card-hover block"
+                  className="bg-white border border-brand/15 overflow-hidden card-hover"
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <Link to={`/faculty/${f.id}`} className="aspect-[4/3] overflow-hidden block">
                     <img
                       src={f.image}
                       alt={f.name}
                       loading="lazy"
                       className="w-full h-full object-cover"
                     />
-                  </div>
+                  </Link>
                   <div className="p-4">
-                    <h3 className="text-brand font-semibold text-lg leading-snug">
-                      {f.name}
-                    </h3>
+                    <Link to={`/faculty/${f.id}`} className="hover:underline">
+                      <h3 className="text-brand font-semibold text-lg leading-snug">
+                        {f.name}
+                      </h3>
+                    </Link>
                     <p className="italic text-sm text-[#3a3a3a]">
                       {f.role}
                       {d && (
@@ -123,11 +124,11 @@ const People = () => {
                     <p className="mt-2 text-sm text-[#3a3a3a]/85 leading-relaxed line-clamp-3">
                       {f.bio}
                     </p>
-                    <span className="text-xs text-brand underline mt-2 inline-block">
+                    <Link to={`/faculty/${f.id}`} className="text-xs text-brand underline mt-2 inline-block">
                       View profile →
-                    </span>
+                    </Link>
                   </div>
-                </Link>
+                </article>
               );
             })}
           </div>

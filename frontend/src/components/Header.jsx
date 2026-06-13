@@ -310,35 +310,13 @@ const Header = () => {
           scrolled ? "shadow-md" : ""
         }`}
       >
-        {/* Top utility bar */}
-        <div className="hidden md:flex justify-end items-center gap-5 px-6 lg:px-10 pt-3 text-[12.5px] font-sans-ui">
-          {topLinks.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              className="text-brand hover:text-brand-dark transition-colors"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <button
-            onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-1 border border-brand/30 px-3 py-1 rounded text-brand hover:bg-brand hover:text-surface transition-colors"
-            aria-label="Open search"
-          >
-            <Search size={14} />
-            <span>Search</span>
-          </button>
-          {/* <ThemeSwitcher /> */}
-        </div>
-
         {/* Main nav row */}
-        <div className="flex items-center justify-between px-4 md:px-6 lg:px-10 py-3">
+        <div className="flex items-center justify-between px-4 md:px-6 lg:px-10 py-2.5">
           <a href="/" className="flex items-center gap-3">
-            <Logo size={120} />
+            <Logo size={96} />
             <div className="leading-tight">
               <div
-                className="text-brand font-bold text-2xl md:text-3xl tracking-wide"
+                className="text-brand font-bold text-2xl md:text-[2rem] tracking-wide"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 KLS VDIT
@@ -376,10 +354,11 @@ const Header = () => {
             ))}
             <button
               onClick={() => setSearchOpen(true)}
-              className="lg:hidden text-brand p-2"
-              aria-label="Search"
+              className="flex items-center gap-1 border border-brand/30 px-3 py-1 rounded text-brand hover:bg-brand hover:text-surface transition-colors"
+              aria-label="Open search"
             >
-              <Search size={18} />
+              <Search size={14} />
+              <span>Search</span>
             </button>
           </nav>
 
