@@ -32,11 +32,12 @@ const AnnouncementBar = ({ onSearchOpen }) => {
         <button
           type="button"
           onClick={onSearchOpen}
-          className="flex h-9 w-10 items-center justify-center border-l border-surface/15 bg-brand-dark text-surface hover:bg-brand hover:text-white transition-colors flex-shrink-0"
+          className="flex h-9 items-center justify-center gap-2 px-4 bg-brand text-surface hover:bg-brand-darker transition-colors flex-shrink-0 font-sans-ui text-xs uppercase tracking-widest"
           aria-label="Open search"
           title="Search"
         >
           <Search size={16} />
+          <span className="hidden sm:inline">Search</span>
         </button>
       </div>
     </div>
