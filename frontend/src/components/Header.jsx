@@ -326,7 +326,7 @@ const Header = () => {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center justify-end gap-4 2xl:gap-7 font-sans-ui text-[12.5px] 2xl:text-[13.5px] font-semibold tracking-wider whitespace-nowrap min-w-0">
+          <nav className="hidden lg:flex items-center justify-end gap-3 xl:gap-4 2xl:gap-7 font-sans-ui text-[12px] xl:text-[12.5px] 2xl:text-[13.5px] font-semibold tracking-wide 2xl:tracking-wider whitespace-nowrap min-w-0">
             {mainNav.map((item) => (
               <div
                 key={item.label}
@@ -353,7 +353,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile actions */}
-          <div className="xl:hidden flex items-center gap-1">
+          <div className="lg:hidden flex items-center gap-1">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 text-brand"
@@ -369,7 +369,7 @@ const Header = () => {
           <div
             onMouseEnter={() => openMenu(openMega)}
             onMouseLeave={() => scheduleClose()}
-            className="hidden xl:block absolute left-0 right-0 top-full pt-2 z-40"
+            className="hidden lg:block absolute left-0 right-0 top-full pt-2 z-40"
           >
             {/* Invisible bridge to prevent dead-zone between trigger & panel */}
             <div className="bg-surface border-t border-brand/15 shadow-xl mega-anim">
@@ -433,7 +433,7 @@ const Header = () => {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="xl:hidden bg-surface border-t border-brand/20 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden bg-surface border-t border-brand/20 max-h-[80vh] overflow-y-auto">
             <div className="px-4 py-4 space-y-1 font-sans-ui">
               {mainNav.map((item) => (
                 <div
