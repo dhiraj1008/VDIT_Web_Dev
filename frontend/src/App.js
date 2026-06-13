@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import FloatingApply from "./components/FloatingApply";
+import SearchModal from "./components/SearchModal";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -74,12 +75,14 @@ const Forum = () => (
 );
 
 function App() {
+  const [searchOpen, setSearchOpen] = React.useState(false);
+
   return (
     <ThemeProvider>
       <div className="App">
         <BrowserRouter>
         <ScrollToTop />
-        <AnnouncementBar />
+        <AnnouncementBar onSearchOpen={() => setSearchOpen(true)} />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -139,6 +142,7 @@ function App() {
         </Routes>
         <Footer />
         <FloatingApply />
+        <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
         </BrowserRouter>
       </div>
     </ThemeProvider>

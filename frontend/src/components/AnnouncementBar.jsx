@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Megaphone } from "lucide-react";
+import { Megaphone, Search } from "lucide-react";
 import { announcements } from "../data/mock";
 
-const AnnouncementBar = () => {
+const AnnouncementBar = ({ onSearchOpen }) => {
   const items = [...announcements, ...announcements];
   return (
     <div className="bg-brand-dark text-surface overflow-hidden">
@@ -15,6 +15,15 @@ const AnnouncementBar = () => {
           <Megaphone size={14} />
           <span className="hidden sm:inline">Announcements</span>
         </Link>
+        <button
+          type="button"
+          onClick={onSearchOpen}
+          className="flex h-9 w-10 items-center justify-center border-l border-r border-surface/15 bg-brand-dark text-surface hover:bg-brand hover:text-white transition-colors flex-shrink-0"
+          aria-label="Open search"
+          title="Search"
+        >
+          <Search size={16} />
+        </button>
         <div className="relative flex-1 overflow-hidden">
           <div className="flex gap-12 marquee-track py-2 whitespace-nowrap">
             {items.map((m, i) => (

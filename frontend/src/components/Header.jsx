@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Search, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import Logo from "./Logo";
-import SearchModal from "./SearchModal";
 // import ThemeSwitcher from "./ThemeSwitcher";
 
 const topLinks = [
@@ -132,7 +131,7 @@ const mainNav = [
     ],
   },
   {
-  label: "ASSOCIATIONS & INNOVATION HUB",
+  label: "ASSOCIATIONS",
   //to: "/associations",
   columns: [
       {
@@ -167,7 +166,7 @@ const mainNav = [
     ],
   }, 
   {
-    label: "AWARDS & RECOGNITION",
+    label: "RECOGNITION",
     to: "/awards-recognition",
     columns: null,
   }
@@ -270,7 +269,6 @@ const Header = () => {
   const [openMega, setOpenMega] = useState(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(null);
   const [openMobileSubMenu, setOpenMobileSubMenu] = useState(null);
-  const [searchOpen, setSearchOpen] = useState(false);
   const closeTimer = useRef(null);
 
   const openMenu = (label) => {
@@ -311,12 +309,12 @@ const Header = () => {
         }`}
       >
         {/* Main nav row */}
-        <div className="flex items-center justify-between px-4 md:px-6 lg:px-10 py-2.5">
-          <a href="/" className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-4 px-4 md:px-6 lg:px-10 py-2.5">
+          <a href="/" className="flex min-w-0 items-center gap-3">
             <Logo size={96} />
-            <div className="leading-tight">
+            <div className="min-w-0 leading-tight">
               <div
-                className="text-brand font-bold text-2xl md:text-[2rem] tracking-wide"
+                className="text-brand font-bold text-2xl md:text-[2rem] tracking-wide whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 KLS VDIT
@@ -328,7 +326,7 @@ const Header = () => {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7 font-sans-ui text-[13.5px] font-semibold tracking-wider whitespace-nowrap">
+          <nav className="hidden xl:flex items-center justify-end gap-4 2xl:gap-7 font-sans-ui text-[12.5px] 2xl:text-[13.5px] font-semibold tracking-wider whitespace-nowrap min-w-0">
             {mainNav.map((item) => (
               <div
                 key={item.label}
@@ -352,25 +350,10 @@ const Header = () => {
                 </NavLink>
               </div>
             ))}
-            <button
-              onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-1 border border-brand/30 px-3 py-1 rounded text-brand hover:bg-brand hover:text-surface transition-colors"
-              aria-label="Open search"
-            >
-              <Search size={14} />
-              <span>Search</span>
-            </button>
           </nav>
 
           {/* Mobile actions */}
-          <div className="lg:hidden flex items-center gap-1">
-            <button
-              onClick={() => setSearchOpen(true)}
-              className="p-2 text-brand"
-              aria-label="Search"
-            >
-              <Search size={22} />
-            </button>
+          <div className="xl:hidden flex items-center gap-1">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 text-brand"
@@ -386,7 +369,7 @@ const Header = () => {
           <div
             onMouseEnter={() => openMenu(openMega)}
             onMouseLeave={() => scheduleClose()}
-            className="hidden lg:block absolute left-0 right-0 top-full pt-2 z-40"
+            className="hidden xl:block absolute left-0 right-0 top-full pt-2 z-40"
           >
             {/* Invisible bridge to prevent dead-zone between trigger & panel */}
             <div className="bg-surface border-t border-brand/15 shadow-xl mega-anim">
@@ -450,7 +433,7 @@ const Header = () => {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-surface border-t border-brand/20 max-h-[80vh] overflow-y-auto">
+          <div className="xl:hidden bg-surface border-t border-brand/20 max-h-[80vh] overflow-y-auto">
             <div className="px-4 py-4 space-y-1 font-sans-ui">
               {mainNav.map((item) => (
                 <div
@@ -569,8 +552,6 @@ const Header = () => {
           </div>
         )}
       </header>
-
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 };
