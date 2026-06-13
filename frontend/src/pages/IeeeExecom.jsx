@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InnerHero from "../components/InnerHero";
 import { ArrowLeft, Mail, IdCard, Users, ChevronDown } from "lucide-react";
-import { useState } from "react";
 
 const execomMembers = [
   {
@@ -191,7 +190,6 @@ const ieeeStudentMembers = [
 
 const MemberCard = ({ member, showMeta = false }) => (
   <div className="bg-white border border-brand/15 overflow-hidden hover:shadow-md transition-all duration-300">
-    
     <div className="aspect-[4/3] overflow-hidden">
       <img
         src={member.image}
@@ -218,9 +216,7 @@ const MemberCard = ({ member, showMeta = false }) => (
         {member.role}
       </p>
 
-      <p className="mt-2 text-sm text-[#2a2a2a]/75">
-        {member.designation}
-      </p>
+      <p className="mt-2 text-sm text-[#2a2a2a]/75">{member.designation}</p>
 
       {showMeta && (
         <div className="mt-4 border-t border-brand/10 pt-4 space-y-2 text-sm">
@@ -239,8 +235,67 @@ const MemberCard = ({ member, showMeta = false }) => (
   </div>
 );
 
+const MembersTable = ({ members }) => {
+  const half = Math.ceil(members.length / 2);
+  const leftMembers = members.slice(0, half);
+  const rightMembers = members.slice(half);
+
+  const TableBlock = ({ data }) => (
+  <div className="overflow-hidden border border-brand/10 bg-white">
+    <table className="w-full table-fixed text-sm">
+      <thead className="bg-brand/5 border-b border-brand/10">
+        <tr>
+          <th className="w-[35%] text-left px-3 py-3 text-brand font-semibold">
+            Name
+          </th>
+
+          <th className="w-[40%] text-left px-3 py-3 text-brand font-semibold">
+            Email
+          </th>
+
+          <th className="w-[25%] text-left px-3 py-3 text-brand font-semibold">
+            ID
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {data.map((member) => (
+          <tr
+            key={member.membershipId}
+            className="border-t border-brand/10 hover:bg-brand/5"
+          >
+            <td className="px-3 py-3 text-xs">
+              {member.name}
+            </td>
+
+            <td
+            className="px-3 py-3 text-[11px] break-all"
+            >
+              {member.email || "-"}
+            </td>
+
+            <td className="px-3 py-3 text-xs whitespace-nowrap">
+              {member.membershipId}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-3">
+      <TableBlock data={leftMembers} />
+      <TableBlock data={rightMembers} />
+    </div>
+  );
+};
+
 const IeeeExecom = () => {
-const [showMembers, setShowMembers] = useState(false);
+  const [showMembers, setShowMembers] = useState(false);
+
   return (
     <main>
       <InnerHero
@@ -258,16 +313,28 @@ const [showMembers, setShowMembers] = useState(false);
           <Link to="/associations/ieee" className="uppercase hover:underline">
             Home
           </Link>
-          <Link to="/associations/ieee/about-us" className="uppercase hover:underline">
+          <Link
+            to="/associations/ieee/about-us"
+            className="uppercase hover:underline"
+          >
             About Us
           </Link>
-          <Link to="/associations/ieee/events" className="uppercase hover:underline">
+          <Link
+            to="/associations/ieee/events"
+            className="uppercase hover:underline"
+          >
             Events
           </Link>
-          <Link to="/associations/ieee#achievements" className="uppercase hover:underline">
+          <Link
+            to="/associations/ieee#achievements"
+            className="uppercase hover:underline"
+          >
             Achievements
           </Link>
-          <Link to="/associations/ieee/execom" className="uppercase hover:underline">
+          <Link
+            to="/associations/ieee/execom"
+            className="uppercase hover:underline"
+          >
             Execom
           </Link>
           <Link to="/associations/ieee" className="uppercase hover:underline">
@@ -300,9 +367,10 @@ const [showMembers, setShowMembers] = useState(false);
               </h1>
 
               <p className="mt-5 text-[16px] text-[#2a2a2a]/85 leading-relaxed">
-                The VDIT IEEE Student Branch Executive Committee for the year 2026
-                includes faculty leadership, professional members and student office
-                bearers who guide, coordinate and support IEEE activities at KLS VDIT.
+                The VDIT IEEE Student Branch Executive Committee for the year
+                2026 includes faculty leadership, professional members and
+                student office bearers who guide, coordinate and support IEEE
+                activities at KLS VDIT.
               </p>
             </section>
 
@@ -336,6 +404,34 @@ const [showMembers, setShowMembers] = useState(false);
                   <MemberCard key={member.name} member={member} />
                 ))}
               </div>
+            </section>
+
+            <section>
+              <button
+                type="button"
+                onClick={() => setShowMembers(!showMembers)}
+                className="w-full bg-white border border-brand/15 p-6 flex justify-between items-center gap-4 hover:bg-brand/5 transition-all text-left"
+              >
+                <h2
+                  className="text-2xl md:text-3xl text-brand font-semibold"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  VDIT IEEE STUDENT BRANCH MEMBERS for the Year 2026
+                </h2>
+
+                <ChevronDown
+                  size={24}
+                  className={`text-brand flex-shrink-0 transition-transform duration-300 ${
+                    showMembers ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {showMembers && (
+                <div className="bg-white border-x border-b border-brand/15 p-6">
+                  <MembersTable members={ieeeStudentMembers} />
+                </div>
+              )}
             </section>
           </div>
 
@@ -376,85 +472,14 @@ const [showMembers, setShowMembers] = useState(false);
                 <div>
                   Year: <strong>2026</strong>
                 </div>
+                <div>
+                  Student Members: <strong>{ieeeStudentMembers.length}</strong>
+                </div>
               </div>
             </div>
           </aside>
         </div>
       </section>
-
-{showMembers && (
-  <div className="bg-white border border-t-0 border-brand/15 p-6">
-
-    <div className="grid lg:grid-cols-2 gap-8">
-
-      {/* LEFT TABLE */}
-      <div className="overflow-hidden border border-brand/10">
-        <table className="w-full text-sm">
-          <thead className="bg-brand/5">
-            <tr>
-              <th className="text-left px-4 py-3">Name</th>
-              <th className="text-left px-4 py-3">Email</th>
-              <th className="text-left px-4 py-3">ID</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {ieeeStudentMembers
-              .slice(0, Math.ceil(ieeeStudentMembers.length / 2))
-              .map((member) => (
-                <tr
-                  key={member.membershipId}
-                  className="border-t border-brand/10"
-                >
-                  <td className="px-4 py-3">{member.name}</td>
-                  <td className="px-4 py-3 text-xs">
-                    {member.email || "-"}
-                  </td>
-                  <td className="px-4 py-3">
-                    {member.membershipId}
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* RIGHT TABLE */}
-      <div className="overflow-hidden border border-brand/10">
-        <table className="w-full text-sm">
-          <thead className="bg-brand/5">
-            <tr>
-              <th className="text-left px-4 py-3">Name</th>
-              <th className="text-left px-4 py-3">Email</th>
-              <th className="text-left px-4 py-3">ID</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {ieeeStudentMembers
-              .slice(Math.ceil(ieeeStudentMembers.length / 2))
-              .map((member) => (
-                <tr
-                  key={member.membershipId}
-                  className="border-t border-brand/10"
-                >
-                  <td className="px-4 py-3">{member.name}</td>
-                  <td className="px-4 py-3 text-xs">
-                    {member.email || "-"}
-                  </td>
-                  <td className="px-4 py-3">
-                    {member.membershipId}
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </div>
-)}
-
     </main>
   );
 };

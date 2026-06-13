@@ -1,13 +1,13 @@
 import React from "react";
 import InnerLayout from "./InnerLayout";
 
-const timeline = [
+{/*const timeline = [
   ["1939", "Seven eminent lawyers and visionaries from North Karnataka founded Karnatak Law Society in Belagavi."],
   ["2004", "KLS established Vishwanathrao Deshpande Institute of Technology at Haliyal as its flagship engineering institute."],
   ["2008", "The first VDIT batch graduated, extending KLS's educational legacy into engineering and technology."],
   ["2024", "VDIT completed 20 years of technical education with an alumni network crossing 7,500."],
   ["2026", "The institute continues to expand its academic, research and innovation ecosystem for students across the region."],
-];
+];*/}
 
 const klsOfficeBearers = [
   ["1", "Shri. Pradeep Sawkar", "President"],
@@ -70,31 +70,29 @@ const KlsTable = ({ title, roleHeader, rows }) => (
 
 const AboutKLS = () => (
   <InnerLayout
-    title="About KLS"
+    title="About Karnatak Law Society"
     image="https://images.unsplash.com/photo-1607013407627-6ee814329547?w=2400&q=80"
     breadcrumbs={[{ label: "About", to: "/about" }, { label: "About KLS" }]}
   >
     <div className="vdit-prose mb-8">
       <p>
-        Karnatak Law Society (KLS), founded in 1939 by seven eminent lawyers
-        and visionaries of North Karnataka, has been a torchbearer of education
-        across Law, Commerce, Engineering and Management for more than eight
-        decades.
+        More than three-quarters of a century ago, several eminent lawyers and visionaries from the North Karnataka region, who were also leading figures in the Indian Freedom Struggle, envisioned making legal education accessible to the people of North Karnataka despite numerous challenges. With this noble vision, seven distinguished lawyers — <strong>N. S. Shrikhande, V. A. Naik, V. D. Belvi, B. N. Datar, S. N. Angadi, R. Kotbagi, and D. S. Paramaj</strong> — came together to establish the <strong>Karnatak Law Society (KLS)</strong> in <strong>1939</strong> at <strong>Belagavi</strong>.
       </p>
       <p>
-        Vishwanathrao Deshpande Institute of Technology was inaugurated in
-        2004 as KLS's flagship engineering institute, with the guidance and
-        support of <strong>Shri R. V. Deshpande</strong>, former minister,
-        Government of Karnataka.
+        <strong>Shrimant Raja Lakhamgouda Sardesai</strong> of <strong>Vantmuri</strong> placed his trust in these founder members and supported their vision by executing a promissory note totaling Rs. 1 lakh to facilitate the establishment of a new law college. Many founder members and legal scholars from the region voluntarily taught at the institution despite having lucrative legal practices and significant personal and social commitments.
       </p>
       <p>
-        Over the past two decades, VDIT has grown from a single building into
-        a vibrant 26-acre residential campus, serving students from across
-        India and producing an alumni network of more than 7,700 engineers.
+        Belagavi subsequently emerged as a renowned center for legal education. Students from Andhra Pradesh, Kerala, and Maharashtra sought admission and went on to contribute significantly in social, political, and judicial fields. The first batch of <strong>Raja Lakhamgouda Law College</strong> commenced in <strong>1939</strong> and graduated in <strong>1941</strong>. Since then, more than <strong>7,500</strong> students have graduated from this prestigious institution.
+      </p>
+      <p>
+        Among the many distinguished alumni produced by the college are <strong>Shri E. S. Venkataramiah</strong>, Former Chief Justice of India; <strong>Shri S. Rajendra Babu</strong>, Former Chief Justice of India and Former Chairman of the National Human Rights Commission; and <strong>Shri K. K. Venugopal</strong>, Former Attorney General of India.
+      </p>
+      <p>
+        Today, <strong>Karnatak Law Society (KLS)</strong> has earned the distinction of managing schools and colleges in the fields of Law, Commerce, Engineering, and Management Education. Over the years, its institutions have established themselves as some of the leading educational institutions in Karnataka, known for their commitment to academic excellence and holistic development.
       </p>
     </div>
 
-    <div className="relative pl-6 border-l-2 border-brand/30 space-y-6">
+    {/*<div className="relative pl-6 border-l-2 border-brand/30 space-y-6">
       {timeline.map(([year, event]) => (
         <div key={year} className="relative">
           <div className="absolute -left-[31px] w-4 h-4 rounded-full bg-brand ring-4 ring-surface" />
@@ -102,6 +100,7 @@ const AboutKLS = () => (
           <p className="text-[#2a2a2a]/85 text-[15px] mt-1">{event}</p>
         </div>
       ))}
+    </div>*/}
     </div>
 
     <KlsTable
