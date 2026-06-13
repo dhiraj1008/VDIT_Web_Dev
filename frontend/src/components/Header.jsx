@@ -68,12 +68,12 @@ const mainNav = [
       {
         heading: "Undergraduate Programs",
         links: [
-          { label: "Computer Science & Engineering (CSE)", to: "/programme/cse" },
+          { label: "Computer Science & Engineering", to: "/programme/cse" },
           { label: "Computer Science & Engineering (AI & ML)", to: "/programme/cse-aiml" },
-          { label: "Electronics & Communication Engineering (ECE)", to: "/programme/ece" },
-          { label: "Electrical & Electronics Engineering (EEE)", to: "/programme/eee" },
-          { label: "Mechanical (ME)", to: "/programme/me" },
-          { label: "Civil", to: "/programme/civil" },
+          { label: "Electronics & Communication Engineering", to: "/programme/ece" },
+          { label: "Electrical & Electronics Engineering", to: "/programme/eee" },
+          { label: "Mechanical Engineering", to: "/programme/me" },
+          { label: "Civil Engineering", to: "/programme/civil" },
           { label: "Basic Science", to: "/programme/bsh" },
         ],
       },
@@ -87,10 +87,10 @@ const mainNav = [
       {
         heading: "Research Centre",
         links: [
-          { label: "Computer Science & Engineering (CSE)", to: "/programme/cse" },
-          { label: "Electronics & Communication Engineering (ECE)", to: "/programme/ece" },
-          { label: "Electrical & Electronics Engineering (EEE)", to: "/programme/eee" },
-          { label: "Mechanical (ME)", to: "/programme/me" },
+          { label: "Computer Science & Engineering", to: "/programme/cse" },
+          { label: "Electronics & Communication Engineering", to: "/programme/ece" },
+          { label: "Electrical & Electronics Engineering", to: "/programme/eee" },
+          { label: "Mechanical Engineering", to: "/programme/me" },
           { label: "Physics", to: "/programme/physics" },
           { label: "Chemistry", to: "/programme/chemistry" },
           { label: "Mathematics", to: "/programme/mathematics" },
@@ -117,7 +117,7 @@ const mainNav = [
   },
   {
     label: "LIFE",
-    //to: "/campus",
+    to: "/campus",
     columns: [
       {
         heading: "Campus Life",
@@ -138,13 +138,13 @@ const mainNav = [
       {
         heading: "Professional Bodies",
         links: [
-          { label: "IEEE", to: "/associations/ieee" },
-          { label: "CSI", to: "/associations/csi" },
-          { label: "ACM", to: "/associations/acm" },
-          { label: "ISTE", to: "/associations/iste" },
-          { label: "IEI", to: "/associations/iei" },
-          { label: "BITES", to: "/associations/bites" },
-          { label: "IIC", to: "/associations/iic" },
+          { label: "Institute of Electrical and Electronics Engineers (IEEE)", to: "/associations/ieee" },
+          { label: "Computer Society of India (CSI)", to: "/associations/csi" },
+          { label: "Association for Computing Machinery (ACM)", to: "/associations/acm" },
+          { label: "Indian Society for Technical Education (ISTE)", to: "/associations/iste" },
+          { label: "Institution of Engineers (India) (IEI)", to: "/associations/iei" },
+          { label: "Board for IT Education Standards (BITES)", to: "/associations/bites" },
+          { label: "Institution's Innovation Council (IIC)", to: "/associations/iic" },
         ],
       },
     ],
@@ -316,14 +316,14 @@ const Header = () => {
             <Link
               key={l.label}
               to={l.to}
-              className="text-brand hover:text-brand-dark transition-colors"
+              className="text-brand hover:text-brand-dark transition-colors whitespace-nowrap"
             >
               {l.label}
             </Link>
           ))}
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-1 border border-brand/30 px-3 py-1 rounded text-brand hover:bg-brand hover:text-surface transition-colors"
+            className="flex items-center gap-1 border border-brand/30 px-3 py-1 rounded text-brand hover:bg-brand hover:text-surface transition-colors whitespace-nowrap"
             aria-label="Open search"
           >
             <Search size={14} />
@@ -338,7 +338,7 @@ const Header = () => {
             <Logo size={120} />
             <div className="leading-tight">
               <div
-                className="text-brand font-bold text-2xl md:text-3xl tracking-wide"
+                className="text-brand font-bold text-2xl md:text-3xl tracking-wide whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 KLS VDIT
@@ -350,7 +350,7 @@ const Header = () => {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7 font-sans-ui text-[13.5px] font-semibold tracking-wider">
+          <nav className="hidden lg:flex items-center gap-7 font-sans-ui text-[13.5px] font-semibold tracking-wider whitespace-nowrap">
             {mainNav.map((item) => (
               <div
                 key={item.label}
@@ -421,7 +421,7 @@ const Header = () => {
                       <h4 className="text-[11px] tracking-[0.18em] text-brand font-sans-ui font-semibold mb-3 uppercase">
                         {col.heading}
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 min-w-max">
                         {col.links.map((l) => (
                           <li key={l.to}>
                             <Link
@@ -430,16 +430,16 @@ const Header = () => {
                                 if (closeTimer.current) clearTimeout(closeTimer.current);
                                 if (!l.children) setOpenMega(null);
                               }}
-                              className="text-[13.5px] text-[#2a2a2a] hover:text-brand transition flex items-center gap-1.5"
+                              className="text-[13.5px] text-[#2a2a2a] hover:text-brand transition flex items-center gap-1.5 whitespace-nowrap"
                             >
                               <ChevronRight
                                 size={12}
-                                className="text-brand/0 group-hover:text-brand"
+                                className="text-brand/0 group-hover:text-brand whitespace-nowrap"
                               />
                               {l.label}
                             </Link>
                             {l.children && (
-                              <ul className="mt-2 ml-4 space-y-1.5 border-l border-brand/15 pl-3">
+                              <ul className="mt-2 ml-4 space-y-1.5 border-l border-brand/15 pl-3 whitespace-nowrap">
                                 {l.children.map((child) => (
                                   <li key={child.to}>
                                     <Link
@@ -448,7 +448,7 @@ const Header = () => {
                                         if (closeTimer.current) clearTimeout(closeTimer.current);
                                         setOpenMega(null);
                                       }}
-                                      className="text-[13px] text-[#2a2a2a]/85 hover:text-brand transition flex items-start gap-1.5 leading-snug"
+                                      className="text-[13px] text-[#2a2a2a]/85 hover:text-brand transition flex items-start gap-1.5 leading-snug whitespace-nowrap"
                                     >
                                       <ChevronRight size={11} className="text-brand mt-0.5 flex-shrink-0" />
                                       <span>{child.label}</span>
