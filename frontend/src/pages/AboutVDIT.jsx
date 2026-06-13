@@ -36,12 +36,6 @@ const AboutVDIT = () => (
       <p>
         As <strong>KLS</strong> continues its remarkable journey of educational service, <strong>KLS VDIT</strong> remains steadfast in its mission of empowering future generations through knowledge, innovation, ethical values, and sustainable development, thereby contributing meaningfully to the progress of society and the nation.
       </p>
-      <ChromaKeyVideo
-        src="/Dhiraj_vod2.mp4"
-        className="about-vdit-video"
-        ariaLabel="About VDIT video"
-      />
-
       <h3>Quick Facts</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 mt-4 mb-6">
         {[
