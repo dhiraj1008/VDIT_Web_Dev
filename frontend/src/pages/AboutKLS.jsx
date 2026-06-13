@@ -101,7 +101,6 @@ const AboutKLS = () => (
         </div>
       ))}
     </div>*/}
-    </div>
 
     <KlsTable
       title="Members of KLS (Office Bearers)"
