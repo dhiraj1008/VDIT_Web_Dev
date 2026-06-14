@@ -46,7 +46,8 @@ const AboutVDIT = () => (
           ["Campus", stats.campus],
           ["UG Courses", stats.ugCourses],
           ["PG Courses", stats.pgCourses],
-          ["Placement", stats.placement],
+          ["Research Centres", stats.researchCentres],
+          //["Placement", stats.placement],
         ].map(([k, v]) => (
           <div key={k}>
             <div className="text-3xl text-brand font-semibold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{v}</div>
@@ -55,14 +56,81 @@ const AboutVDIT = () => (
         ))}
       </div>
 
-      <h3>Affiliations & Approvals</h3>
-      <ul>
-        <li>Affiliated to Visvesvaraya Technological University (VTU), Belagavi</li>
-        <li>Approved by All India Council for Technical Education (AICTE), New Delhi</li>
-        <li>Recognised by Government of Karnataka</li>
-        <li>NAAC accredited</li>
-        <li>NBA accredited (CSE, ECE, EEE, Mechanical)</li>
-      </ul>
+      <h3
+        className="text-3xl text-brand font-semibold mt-12 mb-6"
+        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+      >
+        Affiliations & Approvals
+      </h3>
+
+    <div className="overflow-hidden border border-brand/10">
+    <table className="w-full">
+      <thead>
+        <tr className="bg-brand text-white">
+          <th className="px-5 py-4 text-left font-semibold w-[30%]">
+            Category
+          </th>
+          <th className="px-5 py-4 text-left font-semibold">
+            Details
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {[
+          [
+            "University Affiliation",
+            "Visvesvaraya Technological University (VTU), Belagavi",
+          ],
+          [
+            "Regulatory Approval",
+            "All India Council for Technical Education (AICTE), New Delhi",
+          ],
+          [
+            "UGC Recognition",
+            "Recognized under Section 2(f) of the UGC Act",
+          ],
+          [
+            "State Recognition",
+            "Government of Karnataka",
+          ],
+          [
+            "Accreditation",
+            "NAAC Accredited with Grade 'A' ",
+          ],
+          [
+            "NBA Accreditation",
+            "Computer Science & Engineering (CSE), Electronics & Communication Engineering (ECE), Electrical & Electronics Engineering (EEE), Mechanical Engineering (ME)",
+          ],
+          [
+            "Research Recognition",
+            "Seven VTU-Recognized Research Centres",
+          ],
+          [
+            "Institutional Focus",
+            "Research, Innovation, Entrepreneurship and Sustainable Development",
+          ],
+        ].map(([category, details], index) => (
+          <tr
+            key={category}
+            className={
+              index % 2 === 0
+                ? "bg-white"
+                : "bg-surface-alt/40"
+            }
+          >
+            <td className="px-5 py-4 font-medium text-brand">
+              {category}
+            </td>
+
+            <td className="px-5 py-4 text-[#2a2a2a]/90">
+              {details}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+  </table>
+    </div>
     </div>
   </InnerLayout>
 );

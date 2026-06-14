@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo = ({ size = 72 }) => {
+const Logo = ({ size = 10}) => {
   return (
     <span
       className="inline-flex flex-col items-center justify-center flex-shrink-0 leading-none"
@@ -15,7 +15,7 @@ const Logo = ({ size = 72 }) => {
       />
       <span
         className="mt-1 font-sans-ui font-semibold text-brand tracking-[0.18em] text-center"
-        style={{ fontSize: Math.max(8, Math.round(size * 0.075)) }}
+        style={{ fontSize: Math.max(8, Math.round(size * 0.12)) }}
         aria-hidden="true"
       >
         SINCE 2004

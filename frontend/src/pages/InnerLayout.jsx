@@ -28,6 +28,16 @@ export const aboutSidebar = [
   // { label: "Financial Statements", to: "/about/financial-statements" },
 ];
 
+export const disclosureSidebar = [
+  { label: "AICTE", to: "/aicte" },
+  { label: "VTU", to: "/vtu" },
+  { label: "NAAC", to: "/naac" },
+  { label: "NIRF", to: "/nirf" },
+  { label: "IQAC", to: "/iqac" },
+  { label: "Governance", to: "/governance" },
+  { label: "DELNET", to: "/delnet" },
+];
+
 const InnerLayout = ({ title, image, breadcrumbs, children, sidebar = aboutSidebar, sidebarTitle = "About" }) => {
   return (
     <main>

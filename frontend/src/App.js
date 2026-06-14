@@ -30,8 +30,8 @@ import People from "./pages/People";
 import Committees from "./pages/Committees";
 import Rules from "./pages/Rules";
 import RTI from "./pages/RTI";
-import IQAC from "./pages/IQAC";
-import NIRF from "./pages/NIRF";
+//import IQAC from "./pages/IQAC";
+//import NIRF from "./pages/NIRF";
 import MandatoryDisclosure from "./pages/MandatoryDisclosure";
 import FinancialStatements from "./pages/FinancialStatements";
 
@@ -57,6 +57,15 @@ import IeeeAboutUs from "./pages/IeeeAboutUs";
 import IeeeEvents from "./pages/IeeeEvents";
 import IeeeExecom from "./pages/IeeeExecom";
 import CampusLifeDetail from "./pages/CampusLifeDetail";
+import Hostels from "./pages/campus-life/Hostels";
+
+import AICTE from "./pages/disclosure/AICTE";
+import VTU from "./pages/disclosure/VTU";
+import NAAC from "./pages/disclosure/NAAC";
+import NIRF from "./pages/disclosure/NIRF";
+import IQAC from "./pages/disclosure/IQAC";
+import Governance from "./pages/disclosure/Governance";
+import DELNET from "./pages/disclosure/DELNET";
 
 const Forum = () => (
   <main className="max-w-5xl mx-auto px-6 lg:px-10 py-24 min-h-[60vh]">
@@ -112,7 +121,7 @@ function App() {
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/research" element={<Research />} />
           <Route path="/campus" element={<Campus />} />
-          <Route path="/campus-life/:slug" element={<CampusLifeDetail />} />
+          <Route path="/campus-life/Hostels" element={<Hostels />} />
           <Route path="/campus-life/:slug/:section" element={<CampusLifeDetail />} />
           <Route path="/news-events" element={<NewsEvents />} />
           <Route path="/placements" element={<Placements />} />
@@ -136,8 +145,16 @@ function App() {
           <Route path="/associations/ieee/execom" element={<IeeeExecom />} />
 
           <Route path="/announcement/:id" element={<AnnouncementDetail />} />
-
           <Route path="/student-clubs" element={<StudentClubs />} />
+          {/* Disclosure */}
+          <Route path="/aicte" element={<AICTE />} />
+          <Route path="/vtu" element={<VTU />} />
+          <Route path="/naac" element={<NAAC />} />
+          <Route path="/nirf" element={<NIRF />} />
+          <Route path="/iqac" element={<IQAC />} />
+          <Route path="/governance" element={<Governance />} />
+          <Route path="/delnet" element={<DELNET />} />
+          
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />

@@ -357,14 +357,14 @@ export const events = [
 
 export const stats = {
   established: "2004",
-  students: "1650+",
-  campus: "26 Acres",
-  faculty: "100+",
+  students: "1706+",
+  faculty: "85+",
   alumni: "7700+",
+  campus: "26 Acres",
   ugCourses: "7",
   pgCourses: "2",
-  nbaPrograms: "4",
-  placement: "85%",
+  researchCentres: "7",
+  //placement: "85%",
 };
 
 export const leaders = [
