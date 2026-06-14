@@ -22,6 +22,7 @@ import {
   Mail,
   Phone,
   Clock,
+  BookOpen,
 } from "lucide-react";
 
 const Section = ({ id, title, icon: Icon, children, sub }) => (
@@ -39,6 +40,38 @@ const Section = ({ id, title, icon: Icon, children, sub }) => (
     </div>
     {children}
   </section>
+);
+
+const SimpleTable = ({ title, columns, rows }) => (
+  <div className="bg-white border border-brand/15 overflow-x-auto">
+    <div className="px-4 py-3 border-b border-brand/10">
+      <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui">
+        {title}
+      </h4>
+    </div>
+    <table className="w-full min-w-[480px] text-sm">
+      <thead className="bg-brand text-surface">
+        <tr>
+          {columns.map((column) => (
+            <th key={column} className="text-left px-4 py-3 font-semibold">
+              {column}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={row.join("-")} className="odd:bg-surface/40">
+            {row.map((cell, index) => (
+              <td key={`${cell}-${index}`} className="px-4 py-3 border-t border-brand/10">
+                {cell}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 );
 
 const ProgrammeDetail = ({ programme }) => {
@@ -88,6 +121,19 @@ const ProgrammeDetail = ({ programme }) => {
   const relatedProgrammes = departments.filter(
     (d) => d.id !== dept.id && (d.programmeType || "ug") === programmeType
   );
+  const navItems = [
+    ["overview", "Overview"],
+    dept.curriculumSupport && ["curriculum", "Curriculum"],
+    (dept.programmeOutcomes || dept.pso || dept.peo) && ["outcomes", "Outcomes"],
+    ["faculty", "Faculty"],
+    ["accreditation", "Accreditation"],
+    ["research", "Research"],
+    ["achievements", "Achievements"],
+    (dept.infrastructure || dept.studentActivities || dept.departmentContact) && ["infrastructure", "Infrastructure"],
+    (dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && ["staff-profile", "Staff"],
+    ["news", "News & Events"],
+    ["clubs", "Clubs"],
+  ].filter(Boolean);
 
   return (
     <main>
@@ -103,15 +149,7 @@ const ProgrammeDetail = ({ programme }) => {
 
       <section className="bg-surface-alt/60 border-b border-brand/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3 flex flex-wrap gap-x-6 gap-y-2 text-xs font-sans-ui font-semibold tracking-wider text-brand">
-          {[
-            ["overview", "Overview"],
-            ["faculty", "Faculty"],
-            ["accreditation", "Accreditation"],
-            ["research", "Research"],
-            ["achievements", "Achievements"],
-            ["news", "News & Events"],
-            ["clubs", "Clubs"],
-          ].map(([h, l]) => (
+          {navItems.map(([h, l]) => (
             <a key={h} href={`#${h}`} className="uppercase hover:underline">
               {l}
             </a>
@@ -129,6 +167,33 @@ const ProgrammeDetail = ({ programme }) => {
               <p className="text-[#2a2a2a]/85 leading-relaxed text-[15.5px] mt-3">
                 {dept.description}
               </p>
+              {dept.dashboard && (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
+                  {dept.dashboard.map(([label, value]) => (
+                    <div key={label} className="bg-white p-4 border border-brand/15">
+                      <div
+                        className="text-3xl text-brand font-semibold"
+                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                      >
+                        {value}
+                      </div>
+                      <div className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest mt-1">
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {dept.academicOverview && (
+                <div className="grid md:grid-cols-3 gap-3 mt-5">
+                  {dept.academicOverview.map((item) => (
+                    <div key={item.title} className="bg-white p-4 border border-brand/15">
+                      <h4 className="text-brand font-semibold">{item.title}</h4>
+                      <p className="text-sm text-[#2a2a2a]/85 mt-2 leading-relaxed">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="grid sm:grid-cols-2 gap-3 mt-5">
                 <div className="bg-white p-4 border border-brand/15">
                   <p className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest">
@@ -153,6 +218,68 @@ const ProgrammeDetail = ({ programme }) => {
                 </div>
               </div>
             </Section>
+
+            {dept.curriculumSupport && (
+              <Section id="curriculum" title="Curriculum Support" icon={BookOpen}>
+                <ul className="space-y-2">
+                  {dept.curriculumSupport.map((item) => (
+                    <li key={item} className="flex items-start gap-3 bg-white p-4 border border-brand/15">
+                      <CheckCircle2 size={18} className="text-brand flex-shrink-0 mt-0.5" />
+                      <span className="text-[15px] text-[#2a2a2a]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            )}
+
+            {(dept.programmeOutcomes || dept.pso || dept.peo) && (
+              <Section id="outcomes" title="Outcome-Based Education" icon={Sparkles}>
+                {dept.programmeOutcomes && (
+                  <div className="bg-white border border-brand/15 p-5">
+                    <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui mb-3">
+                      Programme Outcomes
+                    </h4>
+                    <ol className="space-y-2 text-[15px] text-[#2a2a2a]/85">
+                      {dept.programmeOutcomes.map((item, idx) => (
+                        <li key={item}>
+                          <span className="text-brand font-semibold">PO{idx + 1}:</span> {item}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {dept.pso && (
+                    <div className="bg-white border border-brand/15 p-5">
+                      <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui mb-3">
+                        Programme Specific Outcomes
+                      </h4>
+                      <ul className="space-y-2 text-[15px] text-[#2a2a2a]/85">
+                        {dept.pso.map((item, idx) => (
+                          <li key={item}>
+                            <span className="text-brand font-semibold">PSO{idx + 1}:</span> {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {dept.peo && (
+                    <div className="bg-white border border-brand/15 p-5">
+                      <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui mb-3">
+                        Programme Educational Objectives
+                      </h4>
+                      <ul className="space-y-2 text-[15px] text-[#2a2a2a]/85">
+                        {dept.peo.map((item, idx) => (
+                          <li key={item}>
+                            <span className="text-brand font-semibold">PEO{idx + 1}:</span> {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </Section>
+            )}
 
             {/* Faculty section */}
             <Section
@@ -300,6 +427,93 @@ const ProgrammeDetail = ({ programme }) => {
                 ))}
               </ul>
             </Section>
+
+            {(dept.infrastructure || dept.studentActivities || dept.departmentContact) && (
+              <Section id="infrastructure" title="Department Infrastructure" icon={Beaker}>
+                {dept.infrastructure && (
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {dept.infrastructure.map(([label, value]) => (
+                      <div key={label} className="bg-white p-4 border border-brand/15">
+                        <p className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest">
+                          {label}
+                        </p>
+                        <p className="text-sm text-[#2a2a2a] mt-2 leading-relaxed">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {dept.studentActivities && (
+                  <div className="grid md:grid-cols-2 gap-4 mt-4">
+                    <div className="bg-white p-4 border border-brand/15">
+                      <p className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest">
+                        Student Clubs
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {dept.studentActivities.clubs.map((item) => (
+                          <span key={item} className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-white p-4 border border-brand/15">
+                      <p className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest">
+                        Professional Chapters
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {dept.studentActivities.professionalChapters.map((item) => (
+                          <span key={item} className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {dept.departmentContact && (
+                  <div className="bg-white p-5 border-l-4 border-brand mt-4">
+                    <h4 className="text-brand font-semibold">{dept.departmentContact.hod}</h4>
+                    <p className="text-sm italic text-[#3a3a3a]">{dept.departmentContact.role}</p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#3a3a3a] mt-3">
+                      <span className="flex items-center gap-1">
+                        <Mail size={13} className="text-brand" /> {dept.departmentContact.email}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Phone size={13} className="text-brand" /> {dept.departmentContact.phone}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </Section>
+            )}
+
+            {(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && (
+              <Section id="staff-profile" title="Staff Profile" icon={Users}>
+                {dept.facultyTable && (
+                  <SimpleTable
+                    title="Faculty Qualifications and Experience"
+                    columns={["Faculty Name", "Qualifications", "Academic Experience"]}
+                    rows={dept.facultyTable}
+                  />
+                )}
+                <div className="grid lg:grid-cols-2 gap-4 mt-4">
+                  {dept.teachingStaff && (
+                    <SimpleTable
+                      title="Teaching Staff"
+                      columns={["Staff Name", "Designation"]}
+                      rows={dept.teachingStaff}
+                    />
+                  )}
+                  {dept.nonTeachingStaff && (
+                    <SimpleTable
+                      title="Non-Teaching Staff"
+                      columns={["Staff Name", "Designation"]}
+                      rows={dept.nonTeachingStaff}
+                    />
+                  )}
+                </div>
+              </Section>
+            )}
 
             {/* News & Events */}
             <Section id="news" title="News & Events" icon={Calendar}>
