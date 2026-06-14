@@ -43,17 +43,22 @@ const Section = ({ id, title, icon: Icon, children, sub }) => (
 );
 
 const SimpleTable = ({ title, columns, rows }) => (
-  <div className="bg-white border border-brand/15 overflow-x-auto">
+  <div className="bg-white border border-brand/15 overflow-hidden">
     <div className="px-4 py-3 border-b border-brand/10">
       <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui">
         {title}
       </h4>
     </div>
-    <table className="w-full min-w-[480px] text-sm">
+    <table className="w-full table-fixed text-sm">
       <thead className="bg-brand text-surface">
         <tr>
-          {columns.map((column) => (
-            <th key={column} className="text-left px-4 py-3 font-semibold">
+          {columns.map((column, index) => (
+            <th
+              key={column}
+              className={`text-left px-4 py-3 font-semibold align-top ${
+                columns.length === 3 && index === 2 ? "w-32" : ""
+              }`}
+            >
               {column}
             </th>
           ))}
@@ -63,7 +68,10 @@ const SimpleTable = ({ title, columns, rows }) => (
         {rows.map((row) => (
           <tr key={row.join("-")} className="odd:bg-surface/40">
             {row.map((cell, index) => (
-              <td key={`${cell}-${index}`} className="px-4 py-3 border-t border-brand/10">
+              <td
+                key={`${cell}-${index}`}
+                className="px-4 py-3 border-t border-brand/10 align-top whitespace-normal break-words"
+              >
                 {cell}
               </td>
             ))}
