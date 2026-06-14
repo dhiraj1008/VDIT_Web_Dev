@@ -309,24 +309,38 @@ const Header = () => {
         }`}
       >
         {/* Main nav row */}
-        <div className="flex items-center justify-between gap-4 px-4 md:px-6 lg:px-10 py-2.5">
-          <a href="/" className="flex min-w-0 items-center gap-3">
-            <Logo size={96} />
-            <div className="min-w-0 leading-tight">
+        <div className="flex items-center justify-between gap-4 px-2 md:px-3 lg:px-4 py-2.5">
+          <a href="/" className="flex items-center gap-4 flex-shrink-0">
+            <Logo size={50} />
+
+            <div className="leading-tight">
               <div
-                className="text-brand font-bold text-2xl md:text-[2rem] tracking-wide whitespace-nowrap"
+                className="text-brand font-bold text-2xl md:text-[1.5rem] tracking-tight"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                KLS VDIT
+                KLS Vishwanathrao Deshpande
               </div>
-              <div className="text-[#3a3a3a] text-[11px] md:text-xs font-sans-ui leading-tight max-w-[280px]">
-                Vishwanathrao Deshpande Institute of Technology, Haliyal
+
+              <div
+                className="text-brand font-bold text-2xl md:text-[1.5rem] tracking-tight flex items-start"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                <span className="text-[#7a1d2c] text-xl">
+                  Institute of Technology
+                </span>
+
+                <span className="text-brand mx-2">|</span>
+
+                <span className="text-[#666] italic text-[10px] leading-tight flex flex-col pt-1">
+                  <span>Transforming Through</span>
+                  <span>Technology</span>
+                </span>
               </div>
             </div>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center justify-end gap-3 xl:gap-4 2xl:gap-7 font-sans-ui text-[12px] xl:text-[12.5px] 2xl:text-[13.5px] font-semibold tracking-wide 2xl:tracking-wider whitespace-nowrap min-w-0">
+          <nav className="hidden lg:flex items-center justify-end gap-2 xl:gap-3 2xl:gap-5 font-sans-ui text-[16px] xl:text-[16px] 2xl:text-[17px] font-semibold tracking-normal 2xl:tracking-normal whitespace-nowrap min-w-0">
             {mainNav.map((item) => (
               <div
                 key={item.label}

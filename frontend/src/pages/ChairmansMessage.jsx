@@ -12,12 +12,12 @@ const ChairmansMessage = () => (
         <div className="aspect-[3/4] overflow-hidden bg-surface">
           <img
             src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80"
-            alt="Shri. Anant K Tagare"
+            alt="Shri. Prashant Kulkarni"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="mt-3">
-          <p className="text-brand font-semibold text-lg">Shri. Anant K Tagare</p>
+          <p className="text-brand font-semibold text-lg">Shri. Prashant Kulkarni</p>
           <p className="text-[#3a3a3a] italic text-sm">Chairman, KLS VDIT</p>
           {/*<p className="text-[#3a3a3a]/70 text-xs mt-1">Ph.D. (Mech. Engg.), F.I.E.</p>*/}
         </div>
@@ -47,7 +47,7 @@ const ChairmansMessage = () => (
           As we continue our pursuit of excellence, we remain dedicated to inclusive growth, institutional development, and the holistic advancement of our students. We warmly welcome students, parents, alumni, industry partners, and all stakeholders to join us in our journey towards academic distinction, innovation, and societal progress.
         </p>
         <p className="mt-8">
-          <strong>Shri. Anant K Tagare</strong>
+          <strong>Shri. Prashant Kulkarni</strong>
           <br />
           <span className="italic">Chairman, KLS VDIT, Haliyal</span>
         </p>

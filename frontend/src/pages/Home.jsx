@@ -332,10 +332,11 @@ const Stat = ({ label, value, highlight, small }) => (
     <div className="text-xs text-[#3a3a3a] font-sans-ui tracking-widest uppercase mb-2">
       {label}
     </div>
+
     <div
       className={`${
-        small ? "text-2xl" : "text-5xl md:text-6xl"
-      } font-semibold leading-none ${
+        small ? "text-3xl md:text-4xl" : "text-5xl md:text-6xl"
+      } font-semibold leading-none min-h-[72px] ${
         highlight ? "text-brand" : "text-[#1a1a1a]"
       }`}
       style={{ fontFamily: "'Cormorant Garamond', serif" }}

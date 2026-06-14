@@ -7,81 +7,47 @@ const Footer = () => {
   return (
     <footer className="bg-surface-alt border-t border-brand/15 mt-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          <div className="col-span-2 md:col-span-1 lg:col-span-1">
-            <Logo size={150} />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
 
           <div>
             <h4 className="text-brand font-semibold text-xs tracking-[0.18em] mb-4 font-sans-ui">
-              KEY LINKS
+              Disclosure
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/admissions" className="hover:text-brand">
-                  Admissions
+                <Link to="/aicte" className="hover:text-brand">
+                  AICTE
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-brand">
-                  About VDIT
+                <Link to="/vtu" className="hover:text-brand">
+                  VTU
                 </Link>
               </li>
               <li>
-                <Link to="/academics" className="hover:text-brand">
-                  Academic Records
+                <Link to="/naac" className="hover:text-brand">
+                  NAAC
                 </Link>
               </li>
               <li>
-                <Link to="/about#alumni" className="hover:text-brand">
-                  Alumni
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-brand font-semibold text-xs tracking-[0.18em] mb-4 font-sans-ui">
-              VISITORS
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/campus" className="hover:text-brand">
-                  Visit VDIT
+                <Link to="/nirf" className="hover:text-brand">
+                  NIRF
                 </Link>
               </li>
               <li>
-                <Link to="/campus#hostels" className="hover:text-brand">
-                  Stay@VDIT
+                <Link to="/iqac" className="hover:text-brand">
+                  IQAC
                 </Link>
               </li>
               <li>
-                <Link to="/news-events" className="hover:text-brand">
-                  Events
+                <Link to="/governance" className="hover:text-brand">
+                  Governance
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-brand font-semibold text-xs tracking-[0.18em] mb-4 font-sans-ui">
-              POLICIES
-            </h4>
-            <ul className="space-y-2 text-sm">
               <li>
-                <a href="#terms" className="hover:text-brand">
-                  Terms &amp; Conditions
-                </a>
-              </li>
-              <li>
-                <a href="#privacy" className="hover:text-brand">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#anti-ragging" className="hover:text-brand">
-                  Anti-Ragging
-                </a>
+                <Link to="/delnet" className="hover:text-brand">
+                  DELNET
+                </Link>
               </li>
             </ul>
           </div>
