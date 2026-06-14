@@ -79,17 +79,17 @@ const mainNav = [
       {
         heading: "Postgraduate Programs",
         links: [
-          { label: "Industrial Electronics", to: "/programme/ece" },
-          { label: "Thermal Power Engineering", to: "/programme/eee" },
+          { label: "Industrial Electronics", to: "/programme/industrial-electronics" },
+          { label: "Thermal Power Engineering", to: "/programme/thermal-power-engineering" },
         ],
       },
       {
         heading: "Research Centre",
         links: [
-          { label: "Computer Science & Engineering", to: "/programme/cse" },
-          { label: "Electronics & Communication Engineering", to: "/programme/ece" },
-          { label: "Electrical & Electronics Engineering", to: "/programme/eee" },
-          { label: "Mechanical Engineering", to: "/programme/me" },
+          { label: "Computer Science & Engineering", to: "/programme/cse-research" },
+          { label: "Electronics & Communication Engineering", to: "/programme/ece-research" },
+          { label: "Electrical & Electronics Engineering", to: "/programme/eee-research" },
+          { label: "Mechanical Engineering", to: "/programme/me-research" },
           { label: "Physics", to: "/programme/physics" },
           { label: "Chemistry", to: "/programme/chemistry" },
           { label: "Mathematics", to: "/programme/mathematics" },

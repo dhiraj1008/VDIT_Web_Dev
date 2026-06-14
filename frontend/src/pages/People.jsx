@@ -14,6 +14,7 @@ const People = () => {
   const [params, setParams] = useSearchParams();
   const [tab, setTab] = useState(params.get("tab") || "faculty");
   const [dept, setDept] = useState(params.get("dept") || "all");
+  const teachingDepartments = departments.filter((d) => (d.programmeType || "ug") === "ug");
 
   useEffect(() => {
     setTab(params.get("tab") || "faculty");
@@ -37,7 +38,7 @@ const People = () => {
 
   const facultyFiltered = (() => {
     if (dept === "all") return faculty;
-    const d = departments.find((x) => x.short === dept || x.id === dept);
+    const d = teachingDepartments.find((x) => x.short === dept || x.id === dept);
     return d ? faculty.filter((f) => f.deptId === d.id) : faculty;
   })();
 
@@ -76,7 +77,7 @@ const People = () => {
             >
               All
             </button>
-            {departments.map((d) => (
+            {teachingDepartments.map((d) => (
               <button
                 key={d.id}
                 onClick={() => setDeptFilter(d.short)}

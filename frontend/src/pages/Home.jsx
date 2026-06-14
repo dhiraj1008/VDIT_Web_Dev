@@ -18,6 +18,7 @@ const SectionTitle = ({ children, sub }) => (
 );
 
 const Home = () => {
+  const undergraduateDepartments = departments.filter((d) => (d.programmeType || "ug") === "ug");
   const [leaderIdx, setLeaderIdx] = useState(0);
   const visibleLeaders = 2;
   const maxIdx = Math.max(0, leaders.length - visibleLeaders);
@@ -201,7 +202,7 @@ const Home = () => {
           Departments
         </SectionTitle>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {departments.map((d) => (
+          {undergraduateDepartments.map((d) => (
             <Link
               to={`/academics#${d.id}`}
               key={d.id}

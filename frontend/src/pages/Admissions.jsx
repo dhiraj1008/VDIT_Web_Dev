@@ -4,6 +4,7 @@ import { Check, ArrowRight } from "lucide-react";
 import { departments } from "../data/mock";
 
 const Admissions = () => {
+  const admissionProgrammes = departments.filter((d) => (d.programmeType || "ug") !== "research");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -102,7 +103,7 @@ const Admissions = () => {
               <div>
                 <p className="text-sm text-[#3a3a3a] mb-2">Courses you are interested in *</p>
                 <div className="space-y-2">
-                  {departments.map((d) => (
+                  {admissionProgrammes.map((d) => (
                     <label key={d.id} className="flex items-center gap-2 text-sm cursor-pointer">
                       <input type="checkbox" checked={form.courses.includes(d.id)} onChange={() => toggleCourse(d.id)} className="w-4 h-4 accent-brand" />
                       <span>{d.name}</span>

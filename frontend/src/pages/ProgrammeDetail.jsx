@@ -59,12 +59,35 @@ const ProgrammeDetail = () => {
     );
   }
 
-  const facList = facultyByDept(dept.id);
+  const facultyDeptId =
+    dept.facultyDeptId ||
+    {
+      "industrial-electronics": "eee",
+      "thermal-power-engineering": "me",
+      "cse-research": "cse",
+      "ece-research": "ece",
+      "eee-research": "eee",
+      "me-research": "me",
+      physics: "bsh",
+      chemistry: "bsh",
+      mathematics: "bsh",
+    }[dept.id] ||
+    dept.id;
+  const facList = facultyByDept(facultyDeptId);
   const hod = findFaculty(dept.hodId);
   const facWithoutHod = facList.filter((f) => f.id !== dept.hodId);
-  const news = newsByDept(dept.id);
-  const evs = eventsByDept(dept.id);
-  const clubs = clubsByDept(dept.id);
+  const news = newsByDept(facultyDeptId);
+  const evs = eventsByDept(facultyDeptId);
+  const clubs = clubsByDept(facultyDeptId);
+  const programmeType = dept.programmeType || "ug";
+  const programmeLabel = dept.programmeLabel || "B.E.";
+  const overviewTitle =
+    programmeType === "research"
+      ? dept.name
+      : `${programmeLabel} ${dept.name}`;
+  const relatedProgrammes = departments.filter(
+    (d) => d.id !== dept.id && (d.programmeType || "ug") === programmeType
+  );
 
   return (
     <main>
@@ -99,7 +122,7 @@ const ProgrammeDetail = () => {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
         <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-12">
-            <Section id="overview" title={`B.E. ${dept.name}`}>
+            <Section id="overview" title={overviewTitle}>
               <span className="text-xs tracking-[0.2em] text-brand font-sans-ui font-semibold">
                 {dept.short}
               </span>
@@ -374,7 +397,10 @@ const ProgrammeDetail = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users size={14} className="text-brand" />
-                  <span>Annual Intake: <strong>{dept.intake} seats</strong></span>
+                  <span>
+                    {programmeType === "research" ? "Research Intake" : "Annual Intake"}:{" "}
+                    <strong>{dept.intake ? `${dept.intake} seats` : "To be updated"}</strong>
+                  </span>
                 </div>
                 {hod && (
                   <div>
@@ -385,23 +411,24 @@ const ProgrammeDetail = () => {
                   </div>
                 )}
                 <div>Faculty Strength: <strong>{facList.length}</strong></div>
-                <div>Duration: <strong>4 Years (8 Semesters)</strong></div>
+                <div>Duration: <strong>{dept.duration || "4 Years (8 Semesters)"}</strong></div>
                 <div>Affiliation: <strong>VTU, Belagavi</strong></div>
               </div>
-              <Link
-                to="/admissions"
-                className="block mt-5 text-center bg-brand text-surface py-2.5 text-sm font-semibold font-sans-ui hover:bg-brand-dark transition"
-              >
-                Apply for {dept.short}
-              </Link>
+              {programmeType !== "research" && (
+                <Link
+                  to="/admissions"
+                  className="block mt-5 text-center bg-brand text-surface py-2.5 text-sm font-semibold font-sans-ui hover:bg-brand-dark transition"
+                >
+                  Apply for {dept.short}
+                </Link>
+              )}
 
               <div className="mt-6 pt-5 border-t border-brand/10">
                 <h4 className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui mb-3">
-                  Other Departments
+                  Other {programmeType === "research" ? "Research Centres" : "Programmes"}
                 </h4>
                 <ul className="space-y-1.5">
-                  {departments
-                    .filter((d) => d.id !== dept.id)
+                  {relatedProgrammes
                     .map((d) => (
                       <li key={d.id}>
                         <Link
