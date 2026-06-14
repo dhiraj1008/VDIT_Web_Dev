@@ -41,9 +41,9 @@ const Section = ({ id, title, icon: Icon, children, sub }) => (
   </section>
 );
 
-const ProgrammeDetail = () => {
+const ProgrammeDetail = ({ programme }) => {
   const { id } = useParams();
-  const dept = departments.find((d) => d.id === id);
+  const dept = programme || departments.find((d) => d.id === id);
 
   if (!dept) {
     return (

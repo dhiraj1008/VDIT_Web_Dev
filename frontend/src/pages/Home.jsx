@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { newsItems, events, stats, departments, leaders } from "../data/mock";
+import { newsItems, events, stats, leaders } from "../data/mock";
+import { undergraduateProgrammes } from "./departments/programmeIndex";
 import HeroCarousel from "../components/HeroCarousel";
 import { ArrowRight, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -18,7 +19,7 @@ const SectionTitle = ({ children, sub }) => (
 );
 
 const Home = () => {
-  const undergraduateDepartments = departments.filter((d) => (d.programmeType || "ug") === "ug");
+  const undergraduateDepartments = undergraduateProgrammes;
   const [leaderIdx, setLeaderIdx] = useState(0);
   const visibleLeaders = 2;
   const maxIdx = Math.max(0, leaders.length - visibleLeaders);

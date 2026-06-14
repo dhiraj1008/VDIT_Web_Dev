@@ -37,6 +37,22 @@ import FinancialStatements from "./pages/FinancialStatements";
 
 // Other inner pages
 import ProgrammeDetail from "./pages/ProgrammeDetail";
+import CSE from "./pages/departments/UG/CSE";
+import CSEAIML from "./pages/departments/UG/CSEAIML";
+import ECE from "./pages/departments/UG/ECE";
+import EEE from "./pages/departments/UG/EEE";
+import Mechanical from "./pages/departments/UG/Mechanical";
+import Civil from "./pages/departments/UG/Civil";
+import BasicScience from "./pages/departments/UG/BasicScience";
+import IndustrialElectronics from "./pages/departments/PG/IndustrialElectronics";
+import ThermalPowerEngineering from "./pages/departments/PG/ThermalPowerEngineering";
+import CSEResearchCentre from "./pages/departments/ResearchCentres/CSEResearchCentre";
+import ECEResearchCentre from "./pages/departments/ResearchCentres/ECEResearchCentre";
+import EEEResearchCentre from "./pages/departments/ResearchCentres/EEEResearchCentre";
+import MechanicalResearchCentre from "./pages/departments/ResearchCentres/MechanicalResearchCentre";
+import PhysicsResearchCentre from "./pages/departments/ResearchCentres/PhysicsResearchCentre";
+import ChemistryResearchCentre from "./pages/departments/ResearchCentres/ChemistryResearchCentre";
+import MathematicsResearchCentre from "./pages/departments/ResearchCentres/MathematicsResearchCentre";
 import Placements from "./pages/Placements";
 import Library from "./pages/Library";
 import Alumni from "./pages/Alumni";
@@ -116,6 +132,22 @@ function App() {
           <Route path="/about-legacy" element={<About />} />
           {/* Academics + departments */}
           <Route path="/academics" element={<Academics />} />
+          <Route path="/programme/cse" element={<CSE />} />
+          <Route path="/programme/cse-aiml" element={<CSEAIML />} />
+          <Route path="/programme/ece" element={<ECE />} />
+          <Route path="/programme/eee" element={<EEE />} />
+          <Route path="/programme/me" element={<Mechanical />} />
+          <Route path="/programme/civil" element={<Civil />} />
+          <Route path="/programme/bsh" element={<BasicScience />} />
+          <Route path="/programme/industrial-electronics" element={<IndustrialElectronics />} />
+          <Route path="/programme/thermal-power-engineering" element={<ThermalPowerEngineering />} />
+          <Route path="/programme/cse-research" element={<CSEResearchCentre />} />
+          <Route path="/programme/ece-research" element={<ECEResearchCentre />} />
+          <Route path="/programme/eee-research" element={<EEEResearchCentre />} />
+          <Route path="/programme/me-research" element={<MechanicalResearchCentre />} />
+          <Route path="/programme/physics" element={<PhysicsResearchCentre />} />
+          <Route path="/programme/chemistry" element={<ChemistryResearchCentre />} />
+          <Route path="/programme/mathematics" element={<MathematicsResearchCentre />} />
           <Route path="/programme/:id" element={<ProgrammeDetail />} />
           {/* Other top-level */}
           <Route path="/admissions" element={<Admissions />} />

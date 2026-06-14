@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { departments } from "../data/mock";
 import { PageHero } from "./About";
 import { ArrowRight, GraduationCap, BookOpen, FlaskConical } from "lucide-react";
+import {
+  undergraduateProgrammes,
+  postgraduateProgrammes,
+  researchCentres,
+} from "./departments/programmeIndex";
 
 const Academics = () => {
-  const undergraduateProgrammes = departments.filter((d) => (d.programmeType || "ug") === "ug");
-  const postgraduateProgrammes = departments.filter((d) => d.programmeType === "pg");
-  const researchCentres = departments.filter((d) => d.programmeType === "research");
-
   return (
     <main>
       <PageHero

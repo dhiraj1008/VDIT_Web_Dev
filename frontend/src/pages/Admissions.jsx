@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { PageHero } from "./About";
 import { Check, ArrowRight } from "lucide-react";
-import { departments } from "../data/mock";
+import { undergraduateProgrammes, postgraduateProgrammes } from "./departments/programmeIndex";
 
 const Admissions = () => {
-  const admissionProgrammes = departments.filter((d) => (d.programmeType || "ug") !== "research");
+  const admissionProgrammes = [...undergraduateProgrammes, ...postgraduateProgrammes];
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",

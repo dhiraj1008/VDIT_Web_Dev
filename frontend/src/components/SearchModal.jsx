@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, X } from "lucide-react";
-import { newsItems, departments, events, faculty, studentClubs } from "../data/mock";
+import { newsItems, events, faculty, studentClubs } from "../data/mock";
+import { allProgrammes } from "../pages/departments/programmeIndex";
 
 const pages = [
   { title: "About VDIT", path: "/about/about-vdit", desc: "Overview of KLS VDIT, mission, history" },
@@ -42,7 +43,7 @@ const SearchModal = ({ open, onClose }) => {
       (p) =>
         p.title.toLowerCase().includes(Q) || p.desc.toLowerCase().includes(Q)
     );
-    const deptHits = departments
+    const deptHits = allProgrammes
       .filter(
         (d) =>
           d.name.toLowerCase().includes(Q) ||
