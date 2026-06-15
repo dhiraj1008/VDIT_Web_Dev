@@ -11,7 +11,7 @@ const PrincipalsMessage = () => (
       <div className="md:w-64 flex-shrink-0">
         <div className="aspect-[3/4] overflow-hidden bg-surface">
           <img
-            src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80"
+            src="\hero_images\VAKulkarni.png"
             alt="Dr. V. A. Kulkarni"
             className="w-full h-full object-cover"
           />

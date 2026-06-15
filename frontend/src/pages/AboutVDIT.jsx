@@ -2,6 +2,73 @@ import React from "react";
 import InnerLayout from "./InnerLayout";
 import { stats } from "../data/mock";
 
+const programmeTables = [
+  {
+    title: "UG Programs",
+    columns: ["UG Programs", "Year Started", "Intake"],
+    rows: [
+      ["Civil Engineering", "2010", "30"],
+      ["Computer Science & Engineering", "2004", "120"],
+      ["Computer Science & Engineering (AI & ML)", "2022", "60"],
+      ["Computer Science & Engineering (Data Science)", "2026", "60"],
+      ["Electronics & Communication Engineering", "2004", "120"],
+      ["Electrical & Electronics Engineering", "2004", "60"],
+      ["Mechanical Engineering", "2004", "60"],
+    ],
+  },
+  {
+    title: "PG Programs",
+    columns: ["PG Programs", "Year Started", "Intake"],
+    rows: [
+      ["M.Tech in Industrial Electronics", "2010", "12"],
+      ["M.Tech in Thermal Power Engineering", "2010", "12"],
+    ],
+  },
+  {
+    title: "Research Centre",
+    columns: ["Department", "Year Started", "Research Guide", "Research Scholars"],
+    rows: [
+      ["Computer Science & Engineering", "2023", "02", "06"],
+      ["Mechanical Engineering", "2014", "05", "06"],
+      ["Electronics and Communication", "2011", "03", "09"],
+      ["Electrical & Electronics Engineering", "2023", "01", "01"],
+      ["Physics", "2015", "03", "02"],
+      ["Chemistry", "2010", "02", "03"],
+      ["Mathematics", "2004", "02", "05"],
+    ],
+  },
+];
+
+const ProgrammeTable = ({ title, columns, rows }) => (
+  <section className="mt-8">
+    <h3>{title}</h3>
+    <div className="overflow-x-auto border border-brand/10 mt-4 mb-6">
+      <table className="w-full min-w-[620px]">
+        <thead>
+          <tr className="bg-brand text-white">
+            {columns.map((column) => (
+              <th key={column} className="px-5 py-4 text-left font-semibold">
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.join("-")} className={index % 2 === 0 ? "bg-white" : "bg-surface-alt/40"}>
+              {row.map((cell) => (
+                <td key={cell} className="px-5 py-4 text-[#2a2a2a]/90">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+);
+
 const AboutVDIT = () => (
   <InnerLayout
     title="About Vishwanathrao Deshpande Institute of Technology"
@@ -55,6 +122,9 @@ const AboutVDIT = () => (
           </div>
         ))}
       </div>
+      {programmeTables.map((table) => (
+        <ProgrammeTable key={table.title} {...table} />
+      ))}
 
       <h3
         className="text-3xl text-brand font-semibold mt-12 mb-6"

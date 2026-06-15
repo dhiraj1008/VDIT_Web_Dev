@@ -133,14 +133,17 @@ const ProgrammeDetail = ({ programme }) => {
   const evs = eventsByDept(facultyDeptId);
   const clubs = clubsByDept(facultyDeptId);
   const programmeType = dept.programmeType || "ug";
-  const programmeLabel = dept.programmeLabel || "B.E.";
   const overviewTitle =
     programmeType === "research"
       ? dept.name
-      : `${programmeLabel} ${dept.name}`;
+      : dept.name;
   const relatedProgrammes = departments.filter(
     (d) => d.id !== dept.id && (d.programmeType || "ug") === programmeType
   );
+  const researchAreas =
+    typeof dept.research === "string"
+      ? dept.research.split(/[·,]/).map((area) => area.trim()).filter(Boolean)
+      : [];
   const navItems = [
     ["overview", "Overview"],
     //dept.curriculumSupport && ["curriculum", "Curriculum"],
@@ -190,14 +193,18 @@ const ProgrammeDetail = ({ programme }) => {
               {dept.dashboard && (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
                   {dept.dashboard.map(([label, value]) => (
-                    <div key={label} className="bg-white p-4 border border-brand/15">
+                    <div
+                      key={label}
+                      className="bg-[#7a1d2c] p-4 border border-[#7a1d2c]"
+                    >
                       <div
-                        className="text-3xl text-brand font-semibold"
+                        className="text-3xl text-white font-semibold"
                         style={{ fontFamily: "'Cormorant Garamond', serif" }}
                       >
                         {value}
                       </div>
-                      <div className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest mt-1">
+
+                      <div className="text-xs uppercase text-white/80 font-sans-ui tracking-widest mt-1">
                         {label}
                       </div>
                     </div>
@@ -234,7 +241,16 @@ const ProgrammeDetail = ({ programme }) => {
                   <p className="text-xs uppercase text-[#3a3a3a]/70 font-sans-ui tracking-widest">
                     Research Areas
                   </p>
-                  <p className="text-sm text-[#2a2a2a] mt-2">{dept.research}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {researchAreas.map((area) => (
+                      <span
+                        key={area}
+                        className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Section>
@@ -323,7 +339,7 @@ const ProgrammeDetail = ({ programme }) => {
             </Section>
 
             {/* Research */}
-            <Section id="research" title="Research & Funded Projects" icon={Microscope}>
+            {/*<Section id="research" title="Research & Funded Projects" icon={Microscope}>
               <div className="space-y-3">
                 {dept.projects.map((p) => (
                   <div
@@ -348,7 +364,7 @@ const ProgrammeDetail = ({ programme }) => {
               >
                 Explore all research at VDIT <ArrowRight size={14} />
               </Link>
-            </Section>
+            </Section>*/} 
 
             {/* Achievements */}
             <Section id="achievements" title="Achievements" icon={Sparkles}>
@@ -364,8 +380,8 @@ const ProgrammeDetail = ({ programme }) => {
                 ))}
               </ul>
             </Section>
-
-            {(dept.infrastructure || dept.studentActivities || dept.departmentContact) && (
+            
+            {/*(dept.infrastructure || dept.studentActivities || dept.departmentContact) && (
               <Section id="infrastructure" title="Department Infrastructure" icon={Beaker}>
                 {dept.infrastructure && (
                   <div className="grid sm:grid-cols-2 gap-3">
@@ -422,7 +438,7 @@ const ProgrammeDetail = ({ programme }) => {
                   </div>
                 )}
               </Section>
-            )}
+            )*/}
 
             {/*{(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && (
               <Section id="staff-profile" title="Staff Profile" icon={Users}>
@@ -512,6 +528,44 @@ const ProgrammeDetail = ({ programme }) => {
             {/* Clubs */}
             {clubs.length > 0 && (
               <Section id="clubs" title="Student Clubs" icon={Users}>
+                {dept.studentActivities && (
+                  <div className="grid sm:grid-cols-2 gap-4 mb-5">
+                    {dept.studentActivities.clubs?.length > 0 && (
+                      <div className="bg-white border border-brand/15 p-4">
+                        <p className="text-xs uppercase tracking-widest text-brand font-sans-ui">
+                          Student Clubs
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mt-3">
+                          {dept.studentActivities.clubs.map((item) => (
+                            <span
+                              key={item}
+                              className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {dept.studentActivities.professionalChapters?.length > 0 && (
+                      <div className="bg-white border border-brand/15 p-4">
+                        <p className="text-xs uppercase tracking-widest text-brand font-sans-ui">
+                          Professional Chapters
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mt-3">
+                          {dept.studentActivities.professionalChapters.map((item) => (
+                            <span
+                              key={item}
+                              className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
                 <div className="grid sm:grid-cols-2 gap-4">
                   {clubs.map((c) => (
                     <Link
@@ -557,6 +611,11 @@ const ProgrammeDetail = ({ programme }) => {
                 <div>Faculty Strength: <strong>{facultyStrength}</strong></div>
                 <div>Duration: <strong>{dept.duration || "4 Years (8 Semesters)"}</strong></div>
                 <div>Affiliation: <strong>VTU, Belagavi</strong></div>
+                {dept.projects && (
+                  <div>
+                    Research Funded Projects: <strong>{dept.projects.length}</strong>
+                  </div>
+                )}
               </div>
               {programmeType !== "research" && (
                 <Link
