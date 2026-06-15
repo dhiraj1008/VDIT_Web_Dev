@@ -44,6 +44,13 @@ import EEE from "./pages/departments/UG/EEE";
 import Mechanical from "./pages/departments/UG/Mechanical";
 import Civil from "./pages/departments/UG/Civil";
 import BasicScience from "./pages/departments/UG/BasicScience";
+import AIMLResources from "./pages/departments/UG/facultyData/StudentResources/AIMLResources";
+import BSHResources from "./pages/departments/UG/facultyData/StudentResources/BSHResouces";
+import CivilResources from "./pages/departments/UG/facultyData/StudentResources/CivilResources";
+import CSEResources from "./pages/departments/UG/facultyData/StudentResources/CSEResources";
+import ECEResources from "./pages/departments/UG/facultyData/StudentResources/ECEResources";
+import EEEResources from "./pages/departments/UG/facultyData/StudentResources/EEEresources";
+import MechanicalResources from "./pages/departments/UG/facultyData/StudentResources/MechanicalResources";
 import IndustrialElectronics from "./pages/departments/PG/IndustrialElectronics";
 import ThermalPowerEngineering from "./pages/departments/PG/ThermalPowerEngineering";
 import CSEResearchCentre from "./pages/departments/ResearchCentres/CSEResearchCentre";
@@ -139,6 +146,13 @@ function App() {
           <Route path="/programme/me" element={<Mechanical />} />
           <Route path="/programme/civil" element={<Civil />} />
           <Route path="/programme/bsh" element={<BasicScience />} />
+          <Route path="/programme/cse/student-resources" element={<CSEResources />} />
+          <Route path="/programme/cse-aiml/student-resources" element={<AIMLResources />} />
+          <Route path="/programme/ece/student-resources" element={<ECEResources />} />
+          <Route path="/programme/eee/student-resources" element={<EEEResources />} />
+          <Route path="/programme/me/student-resources" element={<MechanicalResources />} />
+          <Route path="/programme/civil/student-resources" element={<CivilResources />} />
+          <Route path="/programme/bsh/student-resources" element={<BSHResources />} />
           <Route path="/programme/industrial-electronics" element={<IndustrialElectronics />} />
           <Route path="/programme/thermal-power-engineering" element={<ThermalPowerEngineering />} />
           <Route path="/programme/cse-research" element={<CSEResearchCentre />} />

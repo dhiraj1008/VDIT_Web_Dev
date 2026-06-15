@@ -355,7 +355,7 @@ const Header = () => {
                   }}
                   className={({ isActive }) =>
                     `nav-link text-[#2a2a2a] hover:text-brand flex items-center gap-1 ${
-                      isActive ? "text-brand" : ""
+                      (item.to && isActive) || openMega === item.label ? "text-brand" : ""
                     }`
                   }
                 >

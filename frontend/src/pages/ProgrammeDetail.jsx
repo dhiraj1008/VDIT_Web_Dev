@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import InnerHero from "../components/InnerHero";
 import {
@@ -21,6 +21,7 @@ import {
   Mail,
   Phone,
   BookOpen,
+  ChevronDown,
 } from "lucide-react";
 
 const Section = ({ id, title, icon: Icon, children, sub }) => (
@@ -83,6 +84,7 @@ const SimpleTable = ({ title, columns, rows }) => (
 const ProgrammeDetail = ({ programme }) => {
   const { id } = useParams();
   const dept = programme || departments.find((d) => d.id === id);
+  const [showStudentClubs, setShowStudentClubs] = useState(true);
 
   if (!dept) {
     return (
@@ -144,6 +146,16 @@ const ProgrammeDetail = ({ programme }) => {
     typeof dept.research === "string"
       ? dept.research.split(/[·,]/).map((area) => area.trim()).filter(Boolean)
       : [];
+  const studentResourcePathByDept = {
+    cse: "/programme/cse/student-resources",
+    "cse-aiml": "/programme/cse-aiml/student-resources",
+    ece: "/programme/ece/student-resources",
+    eee: "/programme/eee/student-resources",
+    me: "/programme/me/student-resources",
+    civil: "/programme/civil/student-resources",
+    bsh: "/programme/bsh/student-resources",
+  };
+  const studentResourcePath = studentResourcePathByDept[dept.id];
   const navItems = [
     ["overview", "Overview"],
     //dept.curriculumSupport && ["curriculum", "Curriculum"],
@@ -155,6 +167,7 @@ const ProgrammeDetail = ({ programme }) => {
     (dept.infrastructure || dept.studentActivities || dept.departmentContact) && ["infrastructure", "Infrastructure"],
     //(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && ["staff-profile", "Staff"],
     ["news", "News & Events"],
+    studentResourcePath && ["student-resources", "Student Resources", studentResourcePath],
     ["clubs", "Clubs"],
   ].filter(Boolean);
 
@@ -172,11 +185,17 @@ const ProgrammeDetail = ({ programme }) => {
 
       <section className="bg-surface-alt/60 border-b border-brand/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3 flex flex-wrap gap-x-6 gap-y-2 text-xs font-sans-ui font-semibold tracking-wider text-brand">
-          {navItems.map(([h, l]) => (
-            <a key={h} href={`#${h}`} className="uppercase hover:underline">
-              {l}
-            </a>
-          ))}
+          {navItems.map(([h, l, to]) =>
+            to ? (
+              <Link key={h} to={to} className="uppercase hover:underline">
+                {l}
+              </Link>
+            ) : (
+              <a key={h} href={`#${h}`} className="uppercase hover:underline">
+                {l}
+              </a>
+            )
+          )}
         </div>
       </section>
 
@@ -526,66 +545,94 @@ const ProgrammeDetail = ({ programme }) => {
             </Section>
 
             {/* Clubs */}
-            {clubs.length > 0 && (
+            {(clubs.length > 0 ||
+              dept.studentActivities?.clubs?.length > 0 ||
+              dept.studentActivities?.professionalChapters?.length > 0) && (
               <Section id="clubs" title="Student Clubs" icon={Users}>
-                {dept.studentActivities && (
-                  <div className="grid sm:grid-cols-2 gap-4 mb-5">
-                    {dept.studentActivities.clubs?.length > 0 && (
-                      <div className="bg-white border border-brand/15 p-4">
-                        <p className="text-xs uppercase tracking-widest text-brand font-sans-ui">
-                          Student Clubs
-                        </p>
-                        <div className="flex flex-wrap gap-1.5 mt-3">
-                          {dept.studentActivities.clubs.map((item) => (
-                            <span
-                              key={item}
-                              className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full"
-                            >
-                              {item}
-                            </span>
-                          ))}
+                <button
+                  type="button"
+                  onClick={() => setShowStudentClubs((isOpen) => !isOpen)}
+                  className="w-full bg-white border border-brand/15 px-4 py-3 mb-4 flex items-center justify-between gap-3 text-left"
+                  aria-expanded={showStudentClubs}
+                >
+                  <span className="text-xs uppercase tracking-widest text-brand font-semibold font-sans-ui">
+                    Student Clubs
+                  </span>
+                  <ChevronDown
+                    size={18}
+                    className={`text-brand transition-transform ${showStudentClubs ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {showStudentClubs && (
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {clubs.map((c) => (
+                      <Link
+                        to="#"
+                        key={c.id}
+                        className="bg-white border border-brand/15 overflow-hidden card-hover block"
+                      >
+                        <div className="aspect-[16/9] overflow-hidden">
+                          <img src={c.image} alt={c.name} className="w-full h-full object-cover" />
                         </div>
-                      </div>
-                    )}
-                    {dept.studentActivities.professionalChapters?.length > 0 && (
-                      <div className="bg-white border border-brand/15 p-4">
-                        <p className="text-xs uppercase tracking-widest text-brand font-sans-ui">
-                          Professional Chapters
-                        </p>
-                        <div className="flex flex-wrap gap-1.5 mt-3">
-                          {dept.studentActivities.professionalChapters.map((item) => (
-                            <span
-                              key={item}
-                              className="px-2.5 py-1 bg-brand/10 text-brand text-xs rounded-full"
-                            >
-                              {item}
-                            </span>
-                          ))}
+                        <div className="p-4">
+                          <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
+                            {c.category}
+                          </span>
+                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{c.name}</h4>
+                          <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">{c.description}</p>
                         </div>
-                      </div>
-                    )}
+                      </Link>
+                    ))}
+                    {dept.studentActivities?.clubs?.map((club) => (
+                      <Link
+                        to="#"
+                        key={club}
+                        className="bg-white border border-brand/15 overflow-hidden card-hover block"
+                      >
+                        <div className="aspect-[16/9] overflow-hidden">
+                          <img
+                            src={clubs[0]?.image || dept.image}
+                            alt={club}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
+                            Student Club
+                          </span>
+                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{club}</h4>
+                          <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">
+                            Student-led technical activities, events, and peer learning through {club}.
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                    {dept.studentActivities?.professionalChapters?.map((chapter) => (
+                      <Link
+                        to="#"
+                        key={chapter}
+                        className="bg-white border border-brand/15 overflow-hidden card-hover block"
+                      >
+                        <div className="aspect-[16/9] overflow-hidden">
+                          <img
+                            src={clubs[0]?.image || dept.image}
+                            alt={chapter}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
+                            Professional Chapter
+                          </span>
+                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{chapter}</h4>
+                          <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">
+                            Student engagement, workshops, certifications, and technical activities through {chapter}.
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 )}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {clubs.map((c) => (
-                    <Link
-                      to="/student-clubs"
-                      key={c.id}
-                      className="bg-white border border-brand/15 overflow-hidden card-hover block"
-                    >
-                      <div className="aspect-[16/9] overflow-hidden">
-                        <img src={c.image} alt={c.name} className="w-full h-full object-cover" />
-                      </div>
-                      <div className="p-4">
-                        <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
-                          {c.category}
-                        </span>
-                        <h4 className="text-brand font-semibold mt-0.5 leading-snug">{c.name}</h4>
-                        <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">{c.description}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
               </Section>
             )}
           </div>
