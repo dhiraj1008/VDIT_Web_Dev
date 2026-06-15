@@ -340,7 +340,7 @@ const Header = () => {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center justify-end gap-2 xl:gap-3 2xl:gap-5 font-sans-ui text-[16px] xl:text-[16px] 2xl:text-[17px] font-semibold tracking-normal 2xl:tracking-normal whitespace-nowrap min-w-0">
+          <nav className="hidden lg:flex items-center justify-end gap-2 xl:gap-3 2xl:gap-5 font-sans-ui text-[14px] xl:text-[14px] 2xl:text-[15px] font-semibold tracking-normal 2xl:tracking-normal whitespace-nowrap min-w-0">
             {mainNav.map((item) => (
               <div
                 key={item.label}

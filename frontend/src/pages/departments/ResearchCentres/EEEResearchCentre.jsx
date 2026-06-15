@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/eeeFacultyData";
 
 export const programme = {
   id: "eee-research",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Electrical & Electronics Engineering Research Centre supports research in power systems, renewable energy, electrical machines, smart grids, and power electronics.",
   image: "https://images.pexels.com/photos/8423416/pexels-photo-8423416.jpeg?w=1000",
   hodId: "f-rajeshwari-nanannavar",
+  facultyData,
   facultyDeptId: "eee",
   labs: ["Power Systems Lab", "Electrical Machines Lab", "Control Systems Lab", "Renewable Energy Lab"],
   research: "Smart Grids · Power Electronics · Renewable Energy · EV Systems",

@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/basicScienceFacultyData";
 
 export const programme = {
   id: "mathematics",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Mathematics Research Centre supports research in graph theory, applied mathematics, discrete mathematics, optimisation, and mathematical modelling.",
   image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1000&q=80",
   hodId: "f-meenal-m-kaliwal",
+  facultyData,
   facultyDeptId: "bsh",
   labs: ["Mathematics Learning Centre", "Research Workspaces", "Computational Tools", "Seminar Facilities"],
   research: "Graph Theory · Applied Mathematics · Discrete Mathematics · Optimisation",

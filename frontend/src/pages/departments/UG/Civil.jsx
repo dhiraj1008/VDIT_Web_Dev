@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/civilFacultyData";
 
 export const programme = {
   id: "civil",
@@ -13,6 +14,7 @@ export const programme = {
   description: "Trains engineers in structural analysis, environmental engineering, geotechnics, and construction management for sustainable infrastructure.",
   image: "https://images.pexels.com/photos/12091126/pexels-photo-12091126.jpeg?w=1000",
   hodId: "f-harsha-a-jadhav",
+  facultyData,
   labs: ["Structural Lab", "Geotechnical Lab", "Surveying Lab", "Environmental Lab"],
   research: "Sustainable Materials · Water Resources · Earthquake Engineering",
   accreditation: ["AICTE Approved Intake: 60 seats", "NBA accreditation visit - March 2026", "MoU with PWD Karnataka"],

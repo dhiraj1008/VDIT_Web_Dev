@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/cseAimlFacultyData";
 
 export const programme = {
   id: "cse-aiml",
@@ -16,6 +17,7 @@ export const programme = {
   description: "The Department of Computer Science and Engineering (Artificial Intelligence & Machine Learning) was established in 2022 to provide quality education in the rapidly growing fields of AI and ML. The department offers a B.E. program that equips students with strong foundations in programming, data science, machine learning, artificial intelligence, and intelligent systems.",
   image: "https://images.pexels.com/photos/9243572/pexels-photo-9243572.jpeg?w=1000",
   hodId: "f-poornima-raikar",
+  facultyData,
   labs: ["AI Lab", "Machine Learning Lab", "Data Science Lab", "Programming Lab", "Project Lab", "Computing Lab"],
   research: "Artificial Intelligence · Machine Learning · Data Science · Intelligent Systems",
   accreditation: ["AICTE Approved Intake: 60 seats", "VTU Affiliated since 2022", "NAAC accreditation under preparation for first NBA cycle"],
@@ -90,12 +92,7 @@ export const programme = {
     clubs: ["AISA Association"],
     professionalChapters: ["C-DAC", "CISCO", "BITES", "Infosys Springboard", "CSI", "ACM"],
   },
-  departmentContact: {
-    hod: "Dr. Poornima Raikar",
-    role: "Head of Department",
-    email: "hodcseaiml@klsvdit.edu.in",
-    phone: "9611517345",
-  },
+  
   facultyTable: [
     ["Dr. Poornima Raikar", "BE, M.Tech, Ph.D", "21 years"],
     ["Mr. Ravindra Patil", "BE, M.Tech", "14 years"],

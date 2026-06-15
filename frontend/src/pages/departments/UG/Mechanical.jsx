@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/mechanicalFacultyData";
 
 export const programme = {
   id: "me",
@@ -13,6 +14,7 @@ export const programme = {
   description: "Offers a comprehensive curriculum in thermodynamics, manufacturing, design and mechatronics, supported by modern workshops and CAD/CAM facilities.",
   image: "https://images.unsplash.com/photo-1702549956329-0888cfa45092?w=1000&q=80",
   hodId: "f-k-s-pujari",
+  facultyData,
   labs: ["CAD/CAM Lab", "Thermodynamics Lab", "Fluid Mechanics Lab", "Manufacturing Workshop"],
   research: "Additive Manufacturing · Tribology · Thermal Engineering · Mechatronics",
   accreditation: ["NBA Accredited (Tier-2) since 2019", "AICTE Approved Intake: 60 seats", "Industry MoU with Bosch & Mahindra"],

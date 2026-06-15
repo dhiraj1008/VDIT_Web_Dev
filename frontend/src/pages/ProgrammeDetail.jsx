@@ -3,12 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import InnerHero from "../components/InnerHero";
 import {
   departments,
-  facultyByDept,
   newsByDept,
   eventsByDept,
   clubsByDept,
-  findFaculty,
 } from "../data/mock";
+import FacultySection from "./departments/shared/FacultySection";
 import {
   ArrowLeft,
   Beaker,
@@ -21,7 +20,6 @@ import {
   ArrowRight,
   Mail,
   Phone,
-  Clock,
   BookOpen,
 } from "lucide-react";
 
@@ -114,9 +112,23 @@ const ProgrammeDetail = ({ programme }) => {
       mathematics: "bsh",
     }[dept.id] ||
     dept.id;
-  const facList = facultyByDept(facultyDeptId);
-  const hod = findFaculty(dept.hodId);
-  const facWithoutHod = facList.filter((f) => f.id !== dept.hodId);
+  const sourceFacultyData = dept.facultyData || { hod: null, members: [] };
+  const localFaculty = [
+    sourceFacultyData.hod,
+    ...(sourceFacultyData.members || []),
+  ].filter(Boolean);
+  const selectedHod =
+    localFaculty.find((faculty) => faculty.id === dept.hodId) || sourceFacultyData.hod;
+  const hod = selectedHod ? { ...selectedHod, showPhone: true } : null;
+  const facultyData = {
+    hod,
+    members: localFaculty.filter((faculty) => !hod || faculty.id !== hod.id),
+  };
+  const facultyCount = localFaculty.length;
+  const facultyStrength =
+    dept.facultyStrength !== undefined
+      ? String(dept.facultyStrength).padStart(2, "0")
+      : facultyCount;
   const news = newsByDept(facultyDeptId);
   const evs = eventsByDept(facultyDeptId);
   const clubs = clubsByDept(facultyDeptId);
@@ -131,14 +143,14 @@ const ProgrammeDetail = ({ programme }) => {
   );
   const navItems = [
     ["overview", "Overview"],
-    dept.curriculumSupport && ["curriculum", "Curriculum"],
+    //dept.curriculumSupport && ["curriculum", "Curriculum"],
     (dept.programmeOutcomes || dept.pso || dept.peo) && ["outcomes", "Outcomes"],
-    ["faculty", "Faculty"],
-    ["accreditation", "Accreditation"],
+    //["faculty", "Faculty"],
+    //["accreditation", "Accreditation"],
     ["research", "Research"],
     ["achievements", "Achievements"],
     (dept.infrastructure || dept.studentActivities || dept.departmentContact) && ["infrastructure", "Infrastructure"],
-    (dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && ["staff-profile", "Staff"],
+    //(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && ["staff-profile", "Staff"],
     ["news", "News & Events"],
     ["clubs", "Clubs"],
   ].filter(Boolean);
@@ -289,94 +301,11 @@ const ProgrammeDetail = ({ programme }) => {
               </Section>
             )}
 
-            {/* Faculty section */}
-            <Section
-              id="faculty"
-              title="Faculty"
-              icon={Users}
-              sub={`Meet the ${facList.length} faculty members of the ${dept.short} department`}
-            >
-              {hod && (
-                <article
-                  className="flex flex-col sm:flex-row gap-5 bg-white border-l-4 border-brand p-5 mb-5 card-hover"
-                >
-                  <Link to={`/faculty/${hod.id}`} className="flex-shrink-0">
-                    <img
-                      src={hod.image}
-                      alt={hod.name}
-                      className="w-28 h-28 sm:w-32 sm:h-32 object-cover"
-                    />
-                  </Link>
-                  <div className="flex-1">
-                    <span className="text-xs uppercase tracking-widest text-brand font-sans-ui font-semibold">
-                      Head of Department
-                    </span>
-                    <Link to={`/faculty/${hod.id}`} className="hover:underline">
-                      <h4
-                        className="text-2xl text-brand font-semibold mt-0.5"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                      >
-                        {hod.name}
-                      </h4>
-                    </Link>
-                    <p className="text-sm italic text-[#3a3a3a]">
-                      {hod.role} · {hod.qualifications}
-                    </p>
-                    <p className="text-sm text-[#2a2a2a]/85 mt-2 leading-relaxed line-clamp-3">
-                      {hod.bio}
-                    </p>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#3a3a3a] mt-3">
-                      <span className="flex items-center gap-1">
-                        <Mail size={12} className="text-brand" /> {hod.email}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Phone size={12} className="text-brand" /> {hod.phone}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={12} className="text-brand" /> {hod.experience}
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              )}
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {facWithoutHod.map((f) => (
-                  <article
-                    key={f.id}
-                    className="bg-white border border-brand/15 p-4 flex items-start gap-4 card-hover"
-                  >
-                    <Link to={`/faculty/${f.id}`} className="flex-shrink-0">
-                      <img
-                        src={f.image}
-                        alt={f.name}
-                        className="w-20 h-20 object-cover"
-                      />
-                    </Link>
-                    <div className="flex-1 min-w-0">
-                      <Link to={`/faculty/${f.id}`} className="hover:underline">
-                        <h4 className="text-brand font-semibold leading-tight">{f.name}</h4>
-                      </Link>
-                      <p className="text-xs italic text-[#3a3a3a] mt-0.5">{f.role}</p>
-                      <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">{f.qualifications}</p>
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {f.areas.slice(0, 2).map((a) => (
-                          <span key={a} className="text-[10.5px] bg-brand/10 text-brand px-2 py-0.5 rounded-full">
-                            {a}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-              <Link
-                to={`/about/people?tab=faculty&dept=${dept.short}`}
-                className="inline-flex items-center gap-1 text-brand hover:underline mt-5 text-sm font-sans-ui"
-              >
-                View all faculty <ArrowRight size={14} />
-              </Link>
-            </Section>
+            <FacultySection
+              facultyData={facultyData}
+              programmeShort={dept.short}
+              Section={Section}
+            />
 
             {/* Accreditation */}
             <Section id="accreditation" title="Accreditation & Approvals" icon={CheckCircle2}>
@@ -495,7 +424,7 @@ const ProgrammeDetail = ({ programme }) => {
               </Section>
             )}
 
-            {(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && (
+            {/*{(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && (
               <Section id="staff-profile" title="Staff Profile" icon={Users}>
                 {dept.facultyTable && (
                   <SimpleTable
@@ -521,7 +450,7 @@ const ProgrammeDetail = ({ programme }) => {
                   )}
                 </div>
               </Section>
-            )}
+            )}*/}
 
             {/* News & Events */}
             <Section id="news" title="News & Events" icon={Calendar}>
@@ -624,15 +553,8 @@ const ProgrammeDetail = ({ programme }) => {
                     <strong>{dept.intake ? `${dept.intake} seats` : "To be updated"}</strong>
                   </span>
                 </div>
-                {hod && (
-                  <div>
-                    Head of Department:{" "}
-                    <Link to={`/faculty/${hod.id}`} className="text-brand underline">
-                      {hod.name}
-                    </Link>
-                  </div>
-                )}
-                <div>Faculty Strength: <strong>{facList.length}</strong></div>
+                
+                <div>Faculty Strength: <strong>{facultyStrength}</strong></div>
                 <div>Duration: <strong>{dept.duration || "4 Years (8 Semesters)"}</strong></div>
                 <div>Affiliation: <strong>VTU, Belagavi</strong></div>
               </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/mechanicalFacultyData";
 
 export const programme = {
   id: "me-research",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Mechanical Engineering Research Centre supports research in thermal engineering, manufacturing, materials, welding, design, and sustainable mechanical systems.",
   image: "https://images.unsplash.com/photo-1702549956329-0888cfa45092?w=1000&q=80",
   hodId: "f-k-s-pujari",
+  facultyData,
   facultyDeptId: "me",
   labs: ["CAD/CAM Lab", "Thermodynamics Lab", "Fluid Mechanics Lab", "Manufacturing Workshop"],
   research: "Additive Manufacturing · Tribology · Thermal Engineering · Mechatronics",

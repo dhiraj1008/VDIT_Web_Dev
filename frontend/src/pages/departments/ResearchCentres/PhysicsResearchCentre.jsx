@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/basicScienceFacultyData";
 
 export const programme = {
   id: "physics",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Physics Research Centre supports research in materials science, spectroscopy, nanomaterials, condensed matter physics, and allied interdisciplinary areas.",
   image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000&q=80",
   hodId: "f-mallikarjun-k-patil",
+  facultyData,
   facultyDeptId: "bsh",
   labs: ["Physics Lab", "Materials Characterisation Lab", "Spectroscopy Facilities", "Research Workspaces"],
   research: "Materials Science · Spectroscopy · Nanomaterials · Condensed Matter Physics",

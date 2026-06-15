@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/eeeFacultyData";
 
 export const programme = {
   id: "industrial-electronics",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The M.Tech programme in Industrial Electronics provides advanced study in power electronics, control systems, embedded systems, industrial automation, and applied electronic systems. Official programme-specific details can be updated here.",
   image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=80",
   hodId: "f-rajeshwari-nanannavar",
+  facultyData,
   facultyDeptId: "eee",
   labs: ["Power Electronics Lab", "Control Systems Lab", "Embedded Systems Lab", "Industrial Automation Lab"],
   research: "Industrial Automation · Power Electronics · Control Systems · Embedded Systems",

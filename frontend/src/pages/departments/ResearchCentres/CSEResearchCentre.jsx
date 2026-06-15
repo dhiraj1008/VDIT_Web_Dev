@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/cseFacultyData";
 
 export const programme = {
   id: "cse-research",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Computer Science & Engineering Research Centre supports doctoral and faculty research in computing, software systems, data science, cybersecurity, and emerging digital technologies. Official research centre details can be updated here.",
   image: "https://images.pexels.com/photos/6208728/pexels-photo-6208728.jpeg?w=1000",
   hodId: "f-venkatesh-shankar",
+  facultyData,
   facultyDeptId: "cse",
   labs: ["Programming Lab", "Database Lab", "Networks Lab", "Cyber Security Lab", "Data Science Lab"],
   research: "Software Engineering · Cloud Computing · Cybersecurity · Data Mining",

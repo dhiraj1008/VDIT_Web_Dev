@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/eceFacultyData";
 
 export const programme = {
   id: "ece",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The ECE department prepares students in VLSI design, embedded systems, signal processing, and wireless communication with state-of-the-art labs.",
   image: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?w=1000&q=80",
   hodId: "f-nagaraj-bhat",
+  facultyData,
   labs: ["VLSI Lab", "Embedded Systems Lab", "Communication Lab", "DSP Lab"],
   research: "VLSI Design · Wireless Networks · IoT · Image Processing",
   accreditation: ["NBA Accredited (Tier-2) since 2019", "VTU Recognised Research Centre", "AICTE Approved Intake: 60 seats"],

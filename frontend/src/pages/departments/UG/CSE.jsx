@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/cseFacultyData";
 
 export const programme = {
   id: "cse",
@@ -13,6 +14,7 @@ export const programme = {
   description: "Established in 2004, the department offers a B.E. programme with specialisations in software engineering, data structures, computer networks and emerging areas of computing.",
   image: "https://images.pexels.com/photos/6208728/pexels-photo-6208728.jpeg?w=1000",
   hodId: "f-venkatesh-shankar",
+  facultyData,
   labs: ["Programming Lab", "Database Lab", "Networks Lab", "Cyber Security Lab", "Data Science Lab"],
   research: "Software Engineering · Cloud Computing · Cybersecurity · Data Mining",
   accreditation: ["NBA Accredited (Tier-2) since 2018", "VTU Recognised Research Centre", "AICTE Approved Intake: 120 seats"],

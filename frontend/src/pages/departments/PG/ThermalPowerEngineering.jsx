@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/mechanicalFacultyData";
 
 export const programme = {
   id: "thermal-power-engineering",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The M.Tech programme in Thermal Power Engineering focuses on thermal systems, power plant engineering, heat transfer, energy systems, and sustainable power technologies. Official programme-specific details can be updated here.",
   image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1000&q=80",
   hodId: "f-k-s-pujari",
+  facultyData,
   facultyDeptId: "me",
   labs: ["Thermal Engineering Lab", "Heat Transfer Lab", "Energy Systems Lab", "Fluid Mechanics Lab"],
   research: "Thermal Systems · Heat Transfer · Power Engineering · Energy Efficiency",

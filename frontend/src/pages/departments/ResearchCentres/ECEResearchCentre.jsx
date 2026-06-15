@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/eceFacultyData";
 
 export const programme = {
   id: "ece-research",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Electronics & Communication Engineering Research Centre supports research in communication systems, VLSI, signal processing, embedded systems, antennas, and IoT-enabled technologies.",
   image: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?w=1000&q=80",
   hodId: "f-nagaraj-bhat",
+  facultyData,
   facultyDeptId: "ece",
   labs: ["VLSI Lab", "Embedded Systems Lab", "Communication Lab", "DSP Lab"],
   research: "VLSI Design · Wireless Networks · IoT · Image Processing",

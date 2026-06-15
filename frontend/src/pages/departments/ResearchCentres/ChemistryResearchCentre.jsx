@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "../UG/facultyData/basicScienceFacultyData";
 
 export const programme = {
   id: "chemistry",
@@ -13,6 +14,7 @@ export const programme = {
   description: "The Chemistry Research Centre supports research in organic chemistry, coordination chemistry, catalysis, nanomaterials, and sustainable chemical sciences.",
   image: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=1000&q=80",
   hodId: "f-g-s-kurdekar",
+  facultyData,
   facultyDeptId: "bsh",
   labs: ["Chemistry Lab", "Organic Synthesis Facilities", "Catalysis Workspaces", "Research Workspaces"],
   research: "Organic Chemistry · Coordination Chemistry · Catalysis · Nanomaterials",

@@ -1,5 +1,6 @@
 import React from "react";
 import ProgrammeDetail from "../../ProgrammeDetail";
+import facultyData from "./facultyData/eeeFacultyData";
 
 export const programme = {
   id: "eee",
@@ -13,6 +14,7 @@ export const programme = {
   description: "Focuses on power systems, control engineering, renewable energy, and electrical machines, training engineers for India's evolving energy sector.",
   image: "https://images.pexels.com/photos/8423416/pexels-photo-8423416.jpeg?w=1000",
   hodId: "f-rajeshwari-nanannavar",
+  facultyData,
   labs: ["Power Systems Lab", "Electrical Machines Lab", "Control Systems Lab", "Renewable Energy Lab"],
   research: "Smart Grids · Power Electronics · Renewable Energy · EV Systems",
   accreditation: ["NBA Accredited (Tier-2) since 2020", "AICTE Approved Intake: 60 seats", "MoU with KREDL for joint research"],

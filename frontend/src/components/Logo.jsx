@@ -18,7 +18,7 @@ const Logo = ({ size = 10}) => {
         style={{ fontSize: Math.max(8, Math.round(size * 0.12)) }}
         aria-hidden="true"
       >
-        SINCE 2004
+        2004
       </span>
     </span>
   );

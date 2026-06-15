@@ -74,7 +74,7 @@ import IeeeEvents from "./pages/IeeeEvents";
 import IeeeExecom from "./pages/IeeeExecom";
 import CampusLifeDetail from "./pages/CampusLifeDetail";
 import Hostels from "./pages/campus-life/Hostels";
-
+import SportsGym from "./pages/campus-life/SportsGym";
 import AICTE from "./pages/disclosure/AICTE";
 import VTU from "./pages/disclosure/VTU";
 import NAAC from "./pages/disclosure/NAAC";
@@ -186,7 +186,9 @@ function App() {
           <Route path="/iqac" element={<IQAC />} />
           <Route path="/governance" element={<Governance />} />
           <Route path="/delnet" element={<DELNET />} />
-          
+          {/* Life */}
+          <Route path="/campus-life/sports-gym" element={<SportsGym />} />
+
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
