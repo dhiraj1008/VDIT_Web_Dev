@@ -35,13 +35,13 @@ const ChairmansMessage = () => (
           Welcome to our institution, where tradition, excellence, and innovation come together to shape future leaders and responsible citizens.
         </p>
         <p>
-          Established under the visionary leadership of the <strong>Karnatak Law Society (KLS)</strong>, our institution proudly carries forward a legacy of educational excellence spanning more than eight decades. Guided by the ideals of our founders, we are committed to creating an academic environment that nurtures talent, encourages innovation, and empowers students to become skilled professionals and socially responsible individuals.
+          Established under the visionary leadership of the <strong>Karnatak Law Society (KLS)</strong>, our institution proudly carries forward a legacy of educational excellence spanning more than <strong>eight decades</strong>. Guided by the ideals of our founders, we are committed to creating an academic environment that nurtures talent, encourages innovation, and empowers students to become skilled professionals and socially responsible individuals.
         </p>
         <p>
-          At our institution, education extends beyond classrooms and laboratories. We view learning as a transformative journey that fosters critical thinking, builds character, and equips students with the knowledge and skills required to contribute meaningfully to society and the nation.
+          At our institution, education extends beyond classrooms and laboratories. We view learning as a transformative journey that fosters <strong>critical thinking</strong>, <strong>builds character</strong>, and equips students with the knowledge and skills required to contribute meaningfully to society and the nation.
         </p>
         <p>
-          Through a strong emphasis on quality education, ethical values, research, innovation, and sustainable development, we strive to provide opportunities that enable students to achieve academic and professional success while addressing the evolving needs of the global community.
+          Through a strong emphasis on <strong>quality education</strong>, <strong>ethical values</strong>, <strong>research</strong>, <strong>innovation</strong>, and <strong>sustainable development</strong>, we strive to provide opportunities that enable students to achieve academic and professional success while addressing the evolving needs of the global community.
         </p>
         <p>
           As we continue our pursuit of excellence, we remain dedicated to inclusive growth, institutional development, and the holistic advancement of our students. We warmly welcome students, parents, alumni, industry partners, and all stakeholders to join us in our journey towards academic distinction, innovation, and societal progress.

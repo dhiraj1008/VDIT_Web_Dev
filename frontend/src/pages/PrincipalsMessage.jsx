@@ -32,33 +32,33 @@ const PrincipalsMessage = () => (
           Dear Aspirants, Students, Parents and Well-wishers,
         </p>
         <p>
-          It gives me great pleasure to welcome you to KLS Vishwanathrao
-          Deshpande Institute of Technology, Haliyal. Since our inception in
-          2004, VDIT has remained steadfast in its mission to provide quality
+          It gives me great pleasure to welcome you to <strong>KLS Vishwanathrao
+          Deshpande Institute of Technology, Haliyal</strong>. Since our inception in
+          <strong>2004</strong>, <strong>VDIT</strong> has remained steadfast in its mission to provide quality
           technical education to the rural and semi-urban youth of North
           Karnataka, while preparing them for a globally connected world.
         </p>
         <p>
-          Our 26-acre campus, cradled by the picturesque Western Ghats, hosts
+          Our <strong>26-acre campus</strong>, cradled by the picturesque <strong>Western Ghats</strong>, hosts
           modern academic blocks, well-equipped laboratories, and a vibrant
-          residential community of more than 1,650 students. We currently
-          offer seven undergraduate programmes, two postgraduate programmes
+          residential community of more than <strong>1,650</strong> students. We currently
+          offer <strong>Seven undergraduate programmes</strong>, <strong>Two postgraduate programmes</strong>
           and a growing portfolio of doctoral and continuing-education
           opportunities.
         </p>
         <p>
-          What sets VDIT apart is our deeply personal approach to education.
-          Our experienced faculty mentor each student, our IEDC nurtures
+          What sets <strong>VDIT</strong> apart is our deeply personal approach to education.
+          Our experienced faculty mentor each student, our <strong>IEDC</strong> nurtures
           entrepreneurial thinking, and our industry-institute partnerships
           ensure that classroom learning translates into real career
-          outcomes. The continued NBA accreditation of our flagship
-          programmes and consistent NAAC outcomes are a testament to the
+          outcomes. The continued <strong>NBA</strong> accreditation of our flagship
+          programmes and consistent <strong>NAAC</strong> outcomes are a testament to the
           quality of the education we provide.
         </p>
         <p>
-          As we step into the future of artificial intelligence, sustainable
-          energy, and connected systems, I invite you to be a part of the VDIT
-          family. Together, we shall transform learners into leaders.
+          As we step into the future of <strong>Artificial Intelligence</strong>, <strong>sustainable
+          energy</strong>, and <strong>connected systems</strong>, I invite you to be a part of the <strong>VDIT
+          family</strong>. Together, we shall transform learners into leaders.
         </p>
         <p className="mt-8">
           <strong>Dr. V. A. Kulkarni</strong>
