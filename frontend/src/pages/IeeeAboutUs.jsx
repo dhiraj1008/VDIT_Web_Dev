@@ -75,13 +75,13 @@ const IeeeAboutUs = () => {
           <Link to="/associations/ieee/about-us" className="uppercase hover:underline">
             About Us
           </Link>
-          <Link to="/associations/ieee#activities" className="uppercase hover:underline">
+          <Link to="/associations/ieee/events" className="uppercase hover:underline">
             Events
           </Link>
           <Link to="/associations/ieee#achievements" className="uppercase hover:underline">
             Achievements
           </Link>
-          <Link to="/associations/ieee#team" className="uppercase hover:underline">
+          <Link to="/associations/ieee/execom" className="uppercase hover:underline">
             Execom
           </Link>
           <Link to="/associations/ieee" className="uppercase hover:underline">

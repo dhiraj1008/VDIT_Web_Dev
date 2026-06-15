@@ -134,6 +134,8 @@ const ProgrammeDetail = ({ programme }) => {
   const news = newsByDept(facultyDeptId);
   const evs = eventsByDept(facultyDeptId);
   const clubs = clubsByDept(facultyDeptId);
+  const departmentClubs = dept.studentActivities?.clubs || [];
+  const professionalChapters = dept.studentActivities?.professionalChapters || [];
   const programmeType = dept.programmeType || "ug";
   const overviewTitle =
     programmeType === "research"
@@ -163,7 +165,7 @@ const ProgrammeDetail = ({ programme }) => {
     //["faculty", "Faculty"],
     //["accreditation", "Accreditation"],
     ["research", "Research"],
-    ["achievements", "Achievements"],
+    dept.achievements?.length > 0 && ["achievements", "Achievements"],
     (dept.infrastructure || dept.studentActivities || dept.departmentContact) && ["infrastructure", "Infrastructure"],
     //(dept.facultyTable || dept.teachingStaff || dept.nonTeachingStaff) && ["staff-profile", "Staff"],
     ["news", "News & Events"],
@@ -343,6 +345,7 @@ const ProgrammeDetail = ({ programme }) => {
             />
 
             {/* Accreditation */}
+            {dept.accreditation?.length > 0 && (
             <Section id="accreditation" title="Accreditation & Approvals" icon={CheckCircle2}>
               <ul className="space-y-2">
                 {dept.accreditation.map((a) => (
@@ -356,6 +359,7 @@ const ProgrammeDetail = ({ programme }) => {
                 ))}
               </ul>
             </Section>
+            )}
 
             {/* Research */}
             {/*<Section id="research" title="Research & Funded Projects" icon={Microscope}>
@@ -386,6 +390,7 @@ const ProgrammeDetail = ({ programme }) => {
             </Section>*/} 
 
             {/* Achievements */}
+            {dept.achievements?.length > 0 && (
             <Section id="achievements" title="Achievements" icon={Sparkles}>
               <ul className="space-y-2">
                 {dept.achievements.map((a) => (
@@ -399,6 +404,7 @@ const ProgrammeDetail = ({ programme }) => {
                 ))}
               </ul>
             </Section>
+            )}
             
             {/*(dept.infrastructure || dept.studentActivities || dept.departmentContact) && (
               <Section id="infrastructure" title="Department Infrastructure" icon={Beaker}>
@@ -546,8 +552,8 @@ const ProgrammeDetail = ({ programme }) => {
 
             {/* Clubs */}
             {(clubs.length > 0 ||
-              dept.studentActivities?.clubs?.length > 0 ||
-              dept.studentActivities?.professionalChapters?.length > 0) && (
+              departmentClubs.length > 0 ||
+              professionalChapters.length > 0) && (
               <Section id="clubs" title="Student Clubs" icon={Users}>
                 <button
                   type="button"
@@ -583,31 +589,40 @@ const ProgrammeDetail = ({ programme }) => {
                         </div>
                       </Link>
                     ))}
-                    {dept.studentActivities?.clubs?.map((club) => (
+                    {departmentClubs.map((club) => {
+                      const clubName = typeof club === "string" ? club : club.name;
+                      const clubCategory = typeof club === "string" ? "Student Club" : club.category || "Student Club";
+                      const clubDescription =
+                        typeof club === "string"
+                          ? `Student-led technical activities, events, and peer learning through ${clubName}.`
+                          : club.description || `Student-led activities and events through ${clubName}.`;
+
+                      return (
                       <Link
                         to="#"
-                        key={club}
+                        key={clubName}
                         className="bg-white border border-brand/15 overflow-hidden card-hover block"
                       >
                         <div className="aspect-[16/9] overflow-hidden">
                           <img
                             src={clubs[0]?.image || dept.image}
-                            alt={club}
+                            alt={clubName}
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="p-4">
                           <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
-                            Student Club
+                            {clubCategory}
                           </span>
-                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{club}</h4>
+                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{clubName}</h4>
                           <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">
-                            Student-led technical activities, events, and peer learning through {club}.
+                            {clubDescription}
                           </p>
                         </div>
                       </Link>
-                    ))}
-                    {dept.studentActivities?.professionalChapters?.map((chapter) => (
+                      );
+                    })}
+                    {professionalChapters.map((chapter) => (
                       <Link
                         to="#"
                         key={chapter}

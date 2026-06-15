@@ -171,9 +171,9 @@ const AssociationDetail = () => {
   const ieeeNavItems = [
     { label: "Home", type: "hash", href: "#overview" },
     { label: "About Us", type: "route", to: "/associations/ieee/about-us" },
-    { label: "Events", type: "hash", href: "/associations/ieee/events" },
+    { label: "Events", type: "route", to: "/associations/ieee/events" },
     { label: "Achievements", type: "hash", href: "#achievements" },
-    { label: "Execom", type: "hash", href: "/associations/ieee/execom" },
+    { label: "Execom", type: "route", to: "/associations/ieee/execom" },
     { label: "Contact Us", type: "hash", href: "#overview" },
   ];
 

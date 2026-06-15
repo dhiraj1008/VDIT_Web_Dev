@@ -176,6 +176,9 @@ function App() {
           <Route path="/students" element={<Students />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/associations" element={<Associations />} />
+          <Route path="/associations/ieee/about-us" element={<IeeeAboutUs />} />
+          <Route path="/associations/ieee/events" element={<IeeeEvents />} />
+          <Route path="/associations/ieee/execom" element={<IeeeExecom />} />
           <Route path="/associations/:id" element={<AssociationDetail />} />
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/coe/:id" element={<COEDetail />} />
@@ -185,10 +188,6 @@ function App() {
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/announcements" element={<Announcements />} />
-
-          <Route path="/associations/ieee/about-us" element={<IeeeAboutUs />} />
-          <Route path="/associations/ieee/events" element={<IeeeEvents />} />
-          <Route path="/associations/ieee/execom" element={<IeeeExecom />} />
 
           <Route path="/announcement/:id" element={<AnnouncementDetail />} />
           <Route path="/student-clubs" element={<StudentClubs />} />
