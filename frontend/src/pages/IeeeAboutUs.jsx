@@ -54,6 +54,20 @@ const BulletList = ({ items }) => (
   </ul>
 );
 
+const ieeeStructure = [
+  { name: "Dr. V. A. Kulkarni", designation: "Chairman" },
+  { name: "Dr. Arun L. Kakhandki", designation: "Branch Counselor" },
+  { name: "Prof. Suraj Kadli", designation: "Faculty Advisor" },
+  { name: "Ms. Sanjana Dhawale", designation: "Student Chair - IEEE VDIT Student Branch" },
+  { name: "Mr. Akshay Bulbule", designation: "Student Vice Chair - IEEE VDIT Student Branch" },
+  { name: "Ms. Nandita K.", designation: "Student Secretary - IEEE VDIT Student Branch" },
+  { name: "Ms. Vaishnavi", designation: "Student Joint Secretary - IEEE VDIT Student Branch" },
+  { name: "Ms. Heena Kousar", designation: "Student Joint Secretary - IEEE VDIT Student Branch" },
+  { name: "Ms. Swati Hosur", designation: "Student Treasurer - IEEE VDIT Student Branch" },
+  { name: "Ms. Chaya Madli", designation: "Chair - Student Activity Committee (SAC)" },
+  { name: "Mr. Sameer Pattan", designation: "Vice Chair - Student Activity Committee (SAC)" },
+];
+
 const IeeeAboutUs = () => {
   return (
     <main>
@@ -75,13 +89,13 @@ const IeeeAboutUs = () => {
           <Link to="/associations/ieee/about-us" className="uppercase hover:underline">
             About Us
           </Link>
-          <Link to="/associations/ieee/events" className="uppercase hover:underline">
+          <Link to="/associations/ieee#activities" className="uppercase hover:underline">
             Events
           </Link>
           <Link to="/associations/ieee#achievements" className="uppercase hover:underline">
             Achievements
           </Link>
-          <Link to="/associations/ieee/execom" className="uppercase hover:underline">
+          <Link to="/associations/ieee#team" className="uppercase hover:underline">
             Execom
           </Link>
           <Link to="/associations/ieee" className="uppercase hover:underline">
@@ -123,18 +137,48 @@ const IeeeAboutUs = () => {
 
               <p className="mt-4 text-[16px] text-[#2a2a2a]/85 leading-relaxed">
                 KLS VDIT’s association with IEEE began in 2020 by forming a Student
-                Branch. The institution was looking for exposure to real-world
-                technologies, opportunities beyond academics, and a platform to connect
-                with academicians and industry professionals. IEEE provided all this and
-                more.
+                Branch. At that time, the institution was looking for exposure to
+                real-world technologies, opportunities beyond academics, and a platform
+                to connect with academicians and industry people. IEEE provided all this
+                and more.
               </p>
+            </section>
+
+            <section className="bg-white border border-brand/15 p-7 md:p-9">
+              <p className="text-xs uppercase tracking-[0.28em] text-brand font-semibold mb-3">
+                IEEE Student Branch Structure
+              </p>
+
+              <h2
+                className="text-3xl md:text-4xl text-brand font-semibold leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                VDIT IEEE Student Branch Structure for the Year 2026
+              </h2>
+
+              <div className="grid sm:grid-cols-2 gap-4 mt-6">
+                {ieeeStructure.map((member) => (
+                  <div
+                    key={`${member.name}-${member.designation}`}
+                    className="border border-brand/15 bg-surface/40 p-5"
+                  >
+                    <h3 className="text-lg font-semibold text-brand leading-snug">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-[#2a2a2a]/80 mt-2 leading-relaxed">
+                      {member.designation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <InfoBlock icon={Lightbulb} title="What IEEE Means to VDIT">
               <p>
                 For VDIT IEEE Student Branch, IEEE represents a legacy of excellence and
                 innovation, a community that nurtures growth, and a platform that
-                empowers individuals.
+                empowers individuals. Being part of this journey, even for a small
+                duration, feels truly meaningful.
               </p>
 
               <BulletList
@@ -151,7 +195,8 @@ const IeeeAboutUs = () => {
               <p>
                 One of the most impactful aspects of IEEE has been its emphasis on
                 experiential learning. Through IEEE activities, students bridge the gap
-                between theoretical knowledge and practical application.
+                between theoretical knowledge and practical application while building
+                confidence in real-world problem solving.
               </p>
 
               <BulletList
@@ -168,14 +213,16 @@ const IeeeAboutUs = () => {
               <p>
                 IEEE is not just about learning; it is also about leading and
                 contributing. Students serving in branch roles gain valuable skills in
-                teamwork, planning, communication and networking.
+                team management, collaboration, event organization, planning,
+                communication and networking.
               </p>
 
               <BulletList
                 items={[
                   "Student Branch Chair, Vice Chair, Treasurer and Volunteer Coordinator roles help students develop leadership.",
                   "Organizing events such as national-level hackathons teaches teamwork and responsibility.",
-                  "The IEEE Student Branch culture encourages students to take initiative and make a difference.",
+                  "Seeing ideas turn into impactful initiatives is one of the most rewarding parts of the IEEE journey.",
+                  "The culture of volunteerism encourages individuals to step forward, take initiative and make a difference.",
                 ]}
               />
             </InfoBlock>
@@ -201,8 +248,8 @@ const IeeeAboutUs = () => {
               <p>
                 KLS VDIT’s journey with IEEE Bangalore Section and IEEE Mangalore
                 Subsection has been one of learning, growth and inspiration. These
-                communities support student branches and promote collaboration between
-                academia and industry.
+                communities have shaped students' technical skills and helped them
+                develop as individuals.
               </p>
 
               <BulletList
@@ -215,11 +262,29 @@ const IeeeAboutUs = () => {
               />
             </InfoBlock>
 
+            <InfoBlock icon={Globe2} title="Digital and Hybrid Engagement">
+              <p>
+                In recent years, the shift toward digital and hybrid engagement has
+                expanded IEEE’s reach. This adaptability ensured that learning and
+                engagement continued seamlessly, even during challenging times.
+              </p>
+
+              <BulletList
+                items={[
+                  "Participation in virtual conferences and webinars.",
+                  "Online competitions and collaborative projects.",
+                  "Continued technical learning through digital platforms.",
+                  "Hybrid engagement that connects students with wider IEEE communities.",
+                ]}
+              />
+            </InfoBlock>
+
             <InfoBlock icon={Globe2} title="Vision for the Future">
               <p>
                 As IEEE Student Branch moves forward, it envisions stronger work in
                 emerging technologies, deeper industry-academia partnerships, increased
-                opportunities for students and wider outreach for societal impact.
+                opportunities for students and young professionals, and wider outreach
+                to create societal impact.
               </p>
 
               <BulletList

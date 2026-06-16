@@ -14,7 +14,7 @@ const associations = [
     coordinator: "Student Branch Chair, Vice Chair, Treasurer and Volunteer Coordinator",
     email: "info@klsvdit.edu.in",
     overview:
-      "IEEE is a reflection of countless journeys, shaped by learning, collaboration, and inspiration. Being a part of IEEE has been a transformative experience for KLS VDIT IEEE Student Branch. What began as a simple step toward exploring technical opportunities soon evolved into a journey of growth, leadership, and meaningful connections.",
+      "IEEE is a reflection of countless journeys, shaped by learning, collaboration, and inspiration. KLS VDIT's association with IEEE began in 2020 by forming a Student Branch, and what began as a step toward exploring technical opportunities evolved into a journey of growth, leadership, meaningful connections, and professional development.",
     sectionTitles: {
       objectives: "Why IEEE",
       activities: "Events",
@@ -24,22 +24,26 @@ const associations = [
     objectives: [
       "Exposure to real-world technologies.",
       "Opportunities beyond academics.",
-      "A platform to connect with academicians and industry professionals.",
+      "A platform to connect with academicians and industry people.",
+      "A community that nurtures growth, innovation, collaboration and lifelong learning.",
     ],
     activities: [
       "Technical workshops, hackathons and hands-on projects.",
       "Expert talks from industry leaders.",
+      "National-level hackathon initiatives that encourage teamwork, responsibility and practical problem solving.",
       "Virtual conferences, webinars, online competitions and collaborative projects.",
     ],
     team: [
       "Student Branch Chair, Vice Chair, Treasurer and Volunteer Coordinator roles help students practice leadership.",
       "Students build team management, event planning, communication and networking skills.",
-      "National-level hackathon organization strengthened teamwork, responsibility and volunteerism.",
+      "The culture of volunteerism encourages members to step forward, take initiative and make a difference.",
+      "Members connect with peers passionate about technology, mentors who guide and inspire, and industry professionals sharing real-world insights.",
     ],
     achievements: [
-      "Members connect with peers passionate about technology, mentors who guide and inspire, and industry professionals sharing real-world insights.",
-      "IEEE Bangalore Section supports student branches across Karnataka, organizes conferences and technical events, and promotes academia-industry collaboration.",
-      "The branch envisions stronger work in emerging technologies, industry-academia partnerships, student opportunities and outreach for societal impact.",
+      "IEEE Bangalore Section supports student branches across Karnataka, organizes high-quality conferences and technical events, and promotes academia-industry collaboration.",
+      "IEEE Mangalore Subsection has supported the branch's journey of learning, growth and inspiration.",
+      "Digital and hybrid engagement expanded access through virtual conferences, webinars, online competitions and collaborative projects.",
+      "The branch envisions stronger work in emerging technologies, industry-academia partnerships, student opportunities, young professional engagement and outreach for societal impact.",
     ],
   },
 
@@ -171,9 +175,9 @@ const AssociationDetail = () => {
   const ieeeNavItems = [
     { label: "Home", type: "hash", href: "#overview" },
     { label: "About Us", type: "route", to: "/associations/ieee/about-us" },
-    { label: "Events", type: "route", to: "/associations/ieee/events" },
+    { label: "Events", type: "hash", href: "/associations/ieee/events" },
     { label: "Achievements", type: "hash", href: "#achievements" },
-    { label: "Execom", type: "route", to: "/associations/ieee/execom" },
+    { label: "Execom", type: "hash", href: "/associations/ieee/execom" },
     { label: "Contact Us", type: "hash", href: "#overview" },
   ];
 

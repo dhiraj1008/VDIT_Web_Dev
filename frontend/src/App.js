@@ -72,6 +72,7 @@ import AnnouncementDetail from "./pages/AnnouncementDetail";
 import StudentClubs from "./pages/StudentClubs";
 import Associations from "./pages/Associations";
 import Clubs from "./pages/Clubs";
+import KalpavrukshaKannadaSangha from "./pages/KalpavrukshaKannadaSangha";
 import COEDetail from "./pages/COEDetail";
 import Sustainability from "./pages/Sustainability";
 import AwardsRecognition from "./pages/AwardsRecognition";
@@ -181,6 +182,7 @@ function App() {
           <Route path="/associations/ieee/execom" element={<IeeeExecom />} />
           <Route path="/associations/:id" element={<AssociationDetail />} />
           <Route path="/clubs" element={<Clubs />} />
+          <Route path="/clubs/kalpavruksha" element={<KalpavrukshaKannadaSangha />} />
           <Route path="/coe/:id" element={<COEDetail />} />
           <Route path="/sustainability" element={<Sustainability />} />
           <Route path="/awards-recognition" element={<AwardsRecognition />} />

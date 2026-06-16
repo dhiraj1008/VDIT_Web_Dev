@@ -133,7 +133,7 @@ const ProgrammeDetail = ({ programme }) => {
       : facultyCount;
   const news = newsByDept(facultyDeptId);
   const evs = eventsByDept(facultyDeptId);
-  const clubs = clubsByDept(facultyDeptId);
+  const clubs = dept.hideSharedClubs ? [] : clubsByDept(facultyDeptId);
   const departmentClubs = dept.studentActivities?.clubs || [];
   const professionalChapters = dept.studentActivities?.professionalChapters || [];
   const programmeType = dept.programmeType || "ug";
@@ -622,30 +622,43 @@ const ProgrammeDetail = ({ programme }) => {
                       </Link>
                       );
                     })}
-                    {professionalChapters.map((chapter) => (
+                    {professionalChapters.map((chapter) => {
+                      const chapterName = typeof chapter === "string" ? chapter : chapter.name;
+                      const chapterCategory =
+                        typeof chapter === "string"
+                          ? "Professional Chapter"
+                          : chapter.category || "Professional Chapter";
+                      const chapterDescription =
+                        typeof chapter === "string"
+                          ? `Student engagement, workshops, certifications, and technical activities through ${chapterName}.`
+                          : chapter.description ||
+                            `Student engagement, workshops, certifications, and technical activities through ${chapterName}.`;
+
+                      return (
                       <Link
                         to="#"
-                        key={chapter}
+                        key={chapterName}
                         className="bg-white border border-brand/15 overflow-hidden card-hover block"
                       >
                         <div className="aspect-[16/9] overflow-hidden">
                           <img
                             src={clubs[0]?.image || dept.image}
-                            alt={chapter}
+                            alt={chapterName}
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="p-4">
                           <span className="text-xs uppercase tracking-widest text-brand font-sans-ui">
-                            Professional Chapter
+                            {chapterCategory}
                           </span>
-                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{chapter}</h4>
+                          <h4 className="text-brand font-semibold mt-0.5 leading-snug">{chapterName}</h4>
                           <p className="text-xs text-[#3a3a3a]/85 mt-1.5 line-clamp-2">
-                            Student engagement, workshops, certifications, and technical activities through {chapter}.
+                            {chapterDescription}
                           </p>
                         </div>
                       </Link>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </Section>

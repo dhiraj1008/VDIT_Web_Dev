@@ -5,10 +5,10 @@ const sections = [
   ["red-ribbon", "Red Ribbon Club", "Outreach", "Awareness programmes and student-led initiatives around health, responsibility, and community wellbeing."],
   ["red-cross", "RedCross Society", "Service", "Volunteer service, first-aid awareness, and social responsibility activities for students."],
   ["eco", "Eco Club", "Sustainability", "Campus green practices, environmental awareness drives, and student participation in conservation work."],
-  ["kalpavruksha", "Kalpavruksha Kannada Sangha", "Culture", "Kannada language, literature, and cultural activities that celebrate local identity and expression."],
+  ["kalpavruksha", "Kalpavruksha Kannada Sangha", "Culture", "Kannada language, literature, and cultural activities that celebrate local identity and expression.", "/clubs/kalpavruksha"],
   ["nss", "NSS", "Service", "National Service Scheme activities including outreach, awareness campaigns, and village engagement programmes."],
   ["standards", "Standards Club", "Technical", "Student exposure to quality standards, engineering practices, and responsible product thinking."],
-].map(([id, title, kicker, body]) => ({ id, title, kicker, body }));
+].map(([id, title, kicker, body, to]) => ({ id, title, kicker, body, to }));
 
 const Clubs = () => (
   <MenuInfoPage

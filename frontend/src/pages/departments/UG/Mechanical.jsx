@@ -107,14 +107,31 @@ export const programme = {
     "Graduates will contribute to society through their devotion in science and technology leading to uplift their standard of living.",
     "Contribute significantly in a multidisciplinary work environment with ethical standards by understanding the role of mechanical engineering."
   ],
+  hideSharedClubs: true,
   studentActivities: {
-  clubs: ["Mechanical Engineering Students Association (MESA)"],
-  professionalChapters: [
-    "Standards Club (SC-4304)",
-    "Bureau of Indian Standards (BIS)",
-    "Indian Society for Technical Education (ISTE)",
-  ],
-},
+    clubs: [
+      {
+        name: "Mechanical Engineering Students Association (MESA)",
+        category: "Student Club",
+        description:
+          "The Mechanical Engineering Students Association (MESA) serves as a platform for students to enhance their technical, leadership, and organizational skills through various academic and co-curricular activities. MESA regularly organizes technical talks, workshops, industrial visits, project exhibitions, competitions, and student development programs. These activities promote teamwork, innovation, professional networking, and holistic personality development among students.",
+      },
+    ],
+    professionalChapters: [
+      {
+        name: "Standards Club (SC-4304)",
+        category: "Professional Chapter",
+        description:
+          "The Standards Club (SC-4304), established in association with the Bureau of Indian Standards (BIS), Hubballi Branch, supports technical talks, workshops, awareness programs, and skill-development activities on emerging technologies, standards, quality practices, and career opportunities.",
+      },
+      {
+        name: "Indian Society for Technical Education (ISTE)",
+        category: "Professional Chapter",
+        description:
+          "The Indian Society for Technical Education supports professional development through technical talks, workshops, awareness programs, and skill-development activities that enhance technical knowledge, professional ethics, leadership qualities, and industry readiness.",
+      },
+    ],
+  },
   facultyTable: [
     ["Dr. K S Pujari", "Ph.D. completed", "26 years"],
     ["B B Patil", "Pursuing Ph.D", "32 years"],

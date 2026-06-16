@@ -20,7 +20,7 @@ const mainNav = [
     to: "/about",
     columns: [
       {
-        heading: "About VDIT",
+        heading: "About",
         links: [
           { label: "About KLS", to: "/about/about-kls" },
           { label: "About VDIT", to: "/about/about-vdit" },
@@ -158,7 +158,7 @@ const mainNav = [
           { label: "Red Ribbon Club", to: "/clubs#red-ribbon" },
           { label: "RedCross Society", to: "/clubs#red-cross" },
           { label: "Eco Club", to: "/clubs#eco" },
-          { label: "Kalpavruksha Kannada Sangha", to: "/clubs#kalpavruksha" },
+          { label: "Kalpavruksha Kannada Sangha", to: "/clubs/kalpavruksha" },
           { label: "NSS", to: "/clubs#nss" },
           { label: "Standards Club", to: "/clubs#standards" },
         ],

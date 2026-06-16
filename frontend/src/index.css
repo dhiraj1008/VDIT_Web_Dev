@@ -27,6 +27,11 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+main p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 @layer base {
     :root {
         --background: 36 56% 93%;

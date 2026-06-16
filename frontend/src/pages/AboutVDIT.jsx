@@ -80,7 +80,7 @@ const AboutVDIT = () => (
     </h2>
     <div className="vdit-prose">
       <p>
-        <strong>KLS Vishwanathrao Deshpande Institute of Technology (KLS VDIT), Haliyal</strong>, stands as a distinguished institution under the prestigious <strong>Karnatak Law Society (KLS)</strong>, an organization established in 1939 by visionary lawyers, freedom fighters, and social reformers of North Karnataka. Founded with the mission of making quality education accessible to all, KLS has evolved into one of Karnataka’s most respected educational organizations, making significant contributions to the fields of Law, Engineering, Commerce, and Management.
+        <strong>KLS Vishwanathrao Deshpande Institute of Technology (KLS VDIT), Haliyal</strong>, stands as a distinguished institution under the prestigious <strong>Karnatak Law Society (KLS)</strong>, an organization established in 1939 by visionary lawyers, freedom fighters, and social reformers of North Karnataka. Founded with the mission of making quality education accessible to all, KLS has evolved into one of Karnataka’s most respected educational organizations, making significant contributions to the fields of <strong>Law</strong>, <strong>Engineering</strong>, <strong>Commerce</strong>, and <strong>Management</strong>.
       </p>
       <p>
         Guided by the enduring vision of its founders, <strong>KLS VDIT</strong> has emerged as a center of academic excellence, innovation, sustainability, and industry-oriented education. The institute currently offers six undergraduate programs, two postgraduate programs, and hosts seven VTU-recognized research centers, serving a vibrant academic community of more than 1,650 students.
